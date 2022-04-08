@@ -1,12 +1,14 @@
 import '../index.css'
+import logoTemp from '../assets/HENRY-logos_transparent.png';
 function Header(){
     return(
-        <div className = 'background'>
+        
             <div className = 'header'>
-                <h1>Love</h1>
+                <img className = 'logo' src={logoTemp}/>
+                <h1 id = 'centerplease'>HENRY</h1>
             </div>
             
-            </div>
+
     )
 };
 

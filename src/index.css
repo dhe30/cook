@@ -1,34 +1,48 @@
 .header {
   width: 100%;
   height:10%;
-  background-color :#7af5a5;
+  background :linear-gradient(to right, #7af5a5,transparent);
   box-sizing: border-box;
   display: flex;
-
+  font-size: 22px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.logo{
+  height: 80px;
+}
+/* this center is for the header */
+#centerplease{
+  line-height: 0.3em;
 }
 .background {
-  background-image: 
-  url(https://prod-virtuoso.dotcmscloud.com/dA/bcdc01e5-3786-41b0-ad5c-c7e79b10a095/heroImage1/banks-Aurora.jpg);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7),60%,transparent),
+  url('./assets/Fairbanks-Aurora.jpg');
   background-size:cover;
   background-Repeat:no-repeat;
-  display: flex;
   height:100vh;
   margin:-8px;
   background-position: center;
   background-attachment: fixed;
 }
 .sidebar{
-  height :100%;
-  
-  background-color :#1ae562;
-  width: 20%;
-
+  display: block;
+  background-color :#f6ffb9;
+  width: 320px;
+  height: 85%;
+  margin-left: 20px;
+  margin-top:20px;
   position :fixed;
-  border :solid;
-};
+  border-radius: 2%;
+}
+.sidebar input{
+  width: 312px;
+  height: 30px;
+  border-radius: 10px;
+  border: 0;
+}
 ul {
   color :black;
-  padding :10px;
+  padding :20px;
   font-size :25px;
   font-family :Georgia, serif;
   font-weight :bold;
