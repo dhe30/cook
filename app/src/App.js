@@ -7,7 +7,7 @@ function App() {
   sidebar.fontFamily="Georgia, serif";
   sidebar.style.height="100%";
   sidebar.style.color="black";
-  sidebar.style.backgroundColor="##1ae562";
+  sidebar.style.backgroundColor="#10ef8a";
   sidebar.style.height="1080px";
   sidebar.style.width="200px";
   sidebar.style.padding="10px";
