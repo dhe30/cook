@@ -54,7 +54,7 @@ li {
 
 .x {
   color:black;
-  font-family:Georgia, serif; 
+  font-family:Georgia, serif;
   text-align : center;
   font-size: 100px;
   background-color: #10ef8a;
@@ -69,7 +69,16 @@ li {
 
 .search{
   float:right;
-  width: 1670px;
+  width: 230px;
   font-size:30px;
   padding:10px;
+}
+
+#menuIcon {
+  height: 40px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
