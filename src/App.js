@@ -9,12 +9,13 @@ function App() {
     <div className = 'background'>
       <Header/>
       <Sidebar/>
+      {/*
       <MenuDropDown>
         <MenuItem icon = ":)"/> !
         <MenuItem icon = ":)"/> !
         <MenuItem icon = ":)"/> !
       </MenuDropDown>
-
+  */}
     </div>
   );
 }
