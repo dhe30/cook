@@ -13,13 +13,14 @@ function App() {
       <Header/>
       </Row>
       <Row>
-        <Col>
+        <Col xs = {12}>
+          
         {/* where the bottun goes*/}
         <Filter/>
         </Col>
         <Col>
-        <Sidebar/>
         {/*other half of the page*/}
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMM
         </Col>
       </Row>
       {/*

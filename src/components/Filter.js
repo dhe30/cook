@@ -9,12 +9,12 @@ function Filter(){
     const [SBIsOpen, setSBIsOpen] = useState(false);
 
     function opener() {
-        setSBIsOpen(true);
+        setSBIsOpen(!SBIsOpen);
      }
      return (
         <Container>
             <Row>
-                <Button variant = 'outline-primrary' onClick = {opener}>
+                <Button id = 'MenuButton' variant = 'outline-primrary' onClick = {opener}>
                     <img id = 'menuIcon' src = {menuIcon}/>
                 </Button>
             </Row>

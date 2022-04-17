@@ -24,12 +24,10 @@
   background-attachment: fixed;
 }
 .sidebar{
-  display: block;
   background-color :#f6ffb9;
-  height: 70%;
-  margin-left: 20px;
+  height: 70vh;
+  width: 50px;
   margin-top:20px;
-  position :fixed;
   border-radius: 2%;
 }
 .sidebar input{
@@ -83,4 +81,12 @@ li {
 
 .navbar-custom {
   height: 200px;
+}
+
+#test {
+  background-color: azure;
+}
+
+#MenuButton {
+  width: 60px;
 }
