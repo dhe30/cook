@@ -13,12 +13,12 @@ function App() {
       <Header/>
       </Row>
       <Row>
-        <Col xs = {12}>
+        <Col lg = {4} md = {7} sm = {10} xs = {12}>
           
         {/* where the bottun goes*/}
         <Filter/>
         </Col>
-        <Col>
+        <Col lg = {4} md = {5} sm = {2} xs = {0}>
         {/*other half of the page*/}
         MMMMMMMMMMMMMMMMMMMMMMMMMMMM
         </Col>
