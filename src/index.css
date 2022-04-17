@@ -26,8 +26,7 @@
 .sidebar{
   display: block;
   background-color :#f6ffb9;
-  width: 320px;
-  height: 85%;
+  height: 70%;
   margin-left: 20px;
   margin-top:20px;
   position :fixed;

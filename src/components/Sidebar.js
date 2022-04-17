@@ -1,7 +1,8 @@
+import { Col, Container } from 'react-bootstrap';
 import '../index.css'
 function Sidebar(){
   return(
-    <div className = 'sidebar'>
+    <Col className = 'sidebar'>
       <h1>Love</h1>
       <input type="text" id="search" placeholder='Search...'/>
       <ul>
@@ -18,7 +19,7 @@ function Sidebar(){
         </li>
 
       </ul>
-    </div>
+    </Col>
   )
 };
 

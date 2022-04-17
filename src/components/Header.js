@@ -5,8 +5,10 @@ import Sidebar from './Sidebar'
 import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.css';
 
+import {useState} from 'react';
 import { Row, Container, Navbar } from 'react-bootstrap';
 function Header(){
+
     return(
       <Container>
         <Row>
@@ -21,11 +23,6 @@ function Header(){
 
         </Navbar>
         </Row>
-        <div>
-          <Button variant = 'outline-primrary'>
-            <img id = 'menuIcon' src = {menuIcon}/>
-          </Button>
-        </div>
       </Container>
     )
 };
