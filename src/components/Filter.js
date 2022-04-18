@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Button from "react-bootstrap/Button";
 import menuIcon from '../assets/menu.png';
 import Sidebar from './Sidebar';
+import Forest from '../assets/Forest_Background.jpeg';
 import {useState} from 'react';
 import { Row, Container, Navbar } from 'react-bootstrap';
 function Filter(){
@@ -20,6 +21,7 @@ function Filter(){
             </Row>
             <Row>
                 {SBIsOpen && <Sidebar/>}
+                <img src = {Forest}/>
             </Row>
         </Container>
      )

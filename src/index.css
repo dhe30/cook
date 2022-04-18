@@ -24,11 +24,12 @@
   background-attachment: fixed;
 }
 .sidebar{
-  background-color :#f6ffb9;
+  background-color :#00a8e6;
+  z-index: 2;
   height: 70vh;
-  width: 50px;
   margin-top:20px;
   border-radius: 2%;
+  --width: width;
 }
 .sidebar input{
   width: 312px;
@@ -64,10 +65,11 @@ li {
 }
 
 .search{
-  float:right;
-  width: 230px;
-  font-size:30px;
-  padding:10px;
+  float:center;
+  position: absolute;
+  right:0;
+  font-size: 30px;
+  padding: 10px;
 }
 
 #menuIcon {
@@ -89,4 +91,9 @@ li {
 
 #MenuButton {
   width: 60px;
+  box-shadow: none;
+}
+
+.fixed {
+  width:300px
 }
