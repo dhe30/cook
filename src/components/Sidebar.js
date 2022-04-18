@@ -8,7 +8,7 @@ function Sidebar(){
       <Row>
         
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>FIlter</Form.Label>
+          <h1>Filter</h1>
           <Form.Control type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
           TEXTEXT

@@ -14,12 +14,14 @@ function App() {
       <Header/>
       </Row>
       <Row>
-        <Col lg = {4} md = {6} sm = {10} xs = {12}>
+        <Col>
+        <div className='fixed'>
           
         {/* where the bottun goes*/}
         <Filter/>
+        </div>
         </Col>
-        <Col lg = {8} md = {6} sm = {2} xs = {0}>
+        <Col>
         {/*other half of the page*/}
         MMMMMMMMMMMMMMMMMMMMMMMMMMMM
         </Col>
@@ -30,6 +32,7 @@ function App() {
         <MenuItem icon = ":)"/> !
         <MenuItem icon = ":)"/> !
       </MenuDropDown>
+       lg = {4} md = {6} sm = {10} xs = {12}
       */}
     </Container>
   );
