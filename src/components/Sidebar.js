@@ -1,19 +1,26 @@
-import { Row, Container, Navbar,Form } from 'react-bootstrap';
+import { Row, Container, Navbar} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 import '../index.css'
-function Sidebar(){
+function Sidebar(props){
   return(
-    <div className='fixed'>
+    <div>
     <Container className = 'sidebar'>
       <Row>
-        
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <h1>Filter</h1>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-          TEXTEXT
-          </Form.Text>
-          </Form.Group>
+        <div className='flexar'>
+        <h1>FIlter</h1>
+        <Button id = 'MenuButton' onClick={props.onClick}>X</Button>
+        </div>
+      <InputGroup className = "mb-3">
+        <Button>
+          Search
+        </Button>
+        <FormControl
+        placeholder='Search'
+        />
+      </InputGroup>
           
       </Row>
       <Row>

@@ -15,14 +15,14 @@ function Filter(){
      return (
         <Container>
             <Row>
-                <Button id = 'MenuButton' variant = 'outline-primrary' onClick = {opener}>
+                {SBIsOpen ? 
+                (<Button id = 'MenuButton' variant = 'outline-primrary' onClick = {opener}>
                     <img id = 'menuIcon' src = {menuIcon}/>
-                </Button>
+                </Button>) : 
+                <Sidebar onClick = {opener}/>
+                }
             </Row>
-            <Row>
-                {SBIsOpen && <Sidebar/>}
-                <img src = {Forest}/>
-            </Row>
+           
         </Container>
      )
 }

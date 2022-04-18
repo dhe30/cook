@@ -1,4 +1,5 @@
 import './index.css';
+import Carasal from './components/Carasal'
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import MenuDropDown from './components/MenuDropDown';
@@ -21,9 +22,11 @@ function App() {
         <Filter/>
         </div>
         </Col>
-        <Col>
+        <Col >
         {/*other half of the page*/}
-        MMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        <div className='fixedc'>
+        <Carasal/>
+        </div>
         </Col>
       </Row>
       {/*
