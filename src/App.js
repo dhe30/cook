@@ -16,7 +16,7 @@ function App() {
       </Row>
       <Row>
         <Col>
-        <div className='fixed'>
+        <div>
           
         {/* where the bottun goes*/}
         <Filter/>

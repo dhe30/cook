@@ -11,8 +11,8 @@ function Carasal(){
         <Container>
         <Carousel>
             <CarouselItem>
-                <img src= {Forest}/>
-                <Carousel.Caption>
+                <img className = 'rounded' src= {Forest}/>
+                <Carousel.Caption id = 'test'>
                     <h3>
                         Eat
                     </h3>
@@ -22,7 +22,7 @@ function Carasal(){
                 </Carousel.Caption>
             </CarouselItem>
             <CarouselItem>
-                <img src= {Fish} class = 'rounded'/>
+                <img  className = 'rounded' src= {Fish}/>
                 <Carousel.Caption>
                     <h3>
                         Eat
