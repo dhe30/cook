@@ -5,14 +5,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import {useState} from 'react';
 import { Row, Container, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 function Header(){
 
     return(
       <Container>
         <Row>
         <Navbar className = 'header'>
-
-          <img className = 'logo' src={logoTemp}/>
+          <Link to='/'>
+            <img className = 'logo' src={logoTemp}/>
+          </Link>
           <Navbar.Text>
             <Navbar.Brand>
           HENRY

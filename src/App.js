@@ -7,37 +7,22 @@ import MenuItem from './components/MenuDropDown';
 import Filter from './components/Filter';
 import Forest from './assets/Forest_Background.jpeg';
 import 'bootstrap/dist/css/bootstrap.css';
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Row, Container, Navbar, Col } from 'react-bootstrap';
+import HomePage from './pages/HomePage.js';
+import RecipePage from './pages/RecipePage';
 function App() {
   return (
-    <Container fluid className = 'background'>
-      <Row>
-      <Header/>
-      </Row>
-      <Row>
-        <Col>
-        <div>
-          
-        {/* where the bottun goes*/}
-        <Filter/>
-        </div>
-        </Col>
-        <Col >
-        {/*other half of the page*/}
-        <div className='fixedc'>
-        <Carasal/>
-        </div>
-        </Col>
-      </Row>
-      {/*
-      <MenuDropDown>
-        <MenuItem icon = ":)"/> !
-        <MenuItem icon = ":)"/> !
-        <MenuItem icon = ":)"/> !
-      </MenuDropDown>
-       lg = {4} md = {6} sm = {10} xs = {12}
-      */}
-    </Container>
+
+      <Router>
+        <Routes>
+          <Route exact path = '/' element = {<HomePage/>}/>
+        </Routes>
+        <Routes>
+          <Route path = '/filler' element = {<RecipePage/>}/>
+        </Routes>
+      </Router>
+
   );
 }
 
