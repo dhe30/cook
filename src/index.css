@@ -136,3 +136,38 @@ li {
 .carousel-item img:hover {
   transform: scale(1.1);
 }
+
+#card {
+  background-color: #ca56a5;
+  display: flex;
+  justify-content: left;
+  width: 300px;
+}
+
+.topBorders {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.bottomBorders {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#image-position {
+  position: relative;
+  
+}
+
+#noGradient {
+  background :linear-gradient(to right, #7af5a5, #7af5a5);
+}
+
+.noBullet {
+  list-style: none;
+}
+
+.center {
+  margin:auto;
+  text-align: center;
+}

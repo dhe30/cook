@@ -1,24 +1,29 @@
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import {useNavigate } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
+import RecipeCards from "./cards/RecipeCards";
+import "../index.css";
 
 function Lava(props){
     return (
         <Container>
             {props.recipes.map((recs) => {
                 return (
-                    <h1>
-                        <div>
-                            {recs.recipe.label} 
-                        </div>
-
-                        <Button onClick={props.onClick}>
-                            <img src = {recs.recipe.image}/>
-                        </Button>
-
-                        <li>
-                            {Math.round(recs.recipe.calories)} calories
-                        </li>
-                    </h1>
+                    <Table>
+                        <tbody>
+                            <tr>
+                                <RecipeCards image = {recs.recipe.image}
+                                             label = {recs.recipe.label}
+                                             cal = {recs.recipe.calories}
+                                             prepTime = {recs.recipe.totalTime}
+                                             cuisine = {recs.recipe.cuisineType}>
+                                </RecipeCards> 
+                            </tr>
+                        </tbody>
+                        
+                    </Table>
+                    
                 )
             })}
         </Container>
