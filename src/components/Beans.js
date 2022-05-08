@@ -5,7 +5,6 @@ import { Row, Col } from 'react-bootstrap';
 import Lava from "./Lava";
 
 function Beans() {
-    const [isLoading, setIsLoading] = useState(true);
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
     const beansContext = useContext(QueryContext);
     const ID = '8fbbf14f';

@@ -1,6 +1,7 @@
 .header {
   width: 100%;
-  background :linear-gradient(to right, #7af5a5,transparent);
+  background-color: #6ce7b0;
+  opacity: 0.6;
   box-sizing: border-box;
   display: flex;
   font-size: 22px;
@@ -29,6 +30,7 @@
   height: 80vh;
   margin-top:20px;
   border-radius: 2%;
+
 }
 .sidebar input{
   width: 312px;
@@ -160,7 +162,7 @@ li {
 }
 
 #noGradient {
-  background :linear-gradient(to right, #7af5a5, #7af5a5);
+  background-color: #6ce7b0;
 }
 
 .noBullet {
@@ -170,4 +172,23 @@ li {
 .center {
   margin:auto;
   text-align: center;
+}
+#hope{
+  position: fixed;
+
+  margin-top: 357px;
+}
+#autocomp{
+  background-color: aliceblue;
+  margin-left: 72px;
+  width: 272px;
+  z-index: 1000;
+  margin-bottom: 0px;
+  padding-left: 10px;
+}
+.autotext{
+  border-style: solid;
+}
+#autocomp:hover{
+  background-color: rgb(148, 193, 193);
 }
