@@ -47,7 +47,7 @@ function Sidebar(props){
       <Row style = {{backgroundColor: ''}}>
         <div className='flexar'>
         <h1>FIlter</h1>
-        <Button id = 'MenuButton' onClick={props.onClick}>X</Button>
+        <Button id = 'MenuButton-2' onClick={props.onClick}>X</Button>
         </div>
       <InputGroup className = "">
         <Button onClick = {goToRecipe}>
@@ -62,7 +62,7 @@ function Sidebar(props){
         onBlur = {()=>{
           setTimeout(() =>{
             setSugges([]);
-          }, 100)
+          }, 150)
         }}
         />
       </InputGroup>

@@ -89,7 +89,15 @@ li {
   background-color: rgb(20, 123, 123);
   
 }
-
+#MenuButton-2{
+  margin-left: 56%;
+  margin-top:5px;
+  width: 70px;
+  height:40px;
+  box-shadow: none;
+  background-color: rgb(20, 123, 123);
+  border-radius: 30px;
+}
 #MenuButton {
   margin: auto;
   margin-top: 40vh;
@@ -162,7 +170,7 @@ li {
 }
 
 #noGradient {
-  background-color: #6ce7b0;
+  
 }
 
 .noBullet {
@@ -176,7 +184,7 @@ li {
 #hope{
   position: fixed;
 
-  margin-top: 357px;
+  margin-top: 95px;
 }
 #autocomp{
   background-color: aliceblue;
