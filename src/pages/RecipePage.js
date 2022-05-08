@@ -10,7 +10,7 @@ function RecipePage(){
                 <Header id = "noGradient"/>
             </Row>
             <Row>
-                <Beans/>
+                <Beans/> 
             </Row>
         </Container>
     )   
