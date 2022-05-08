@@ -7,7 +7,7 @@ function RecipePage(){
     return(
         <Container fluid>
             <Row>
-                <Header id = "noGradient"/>
+                <Header/>
             </Row>
             <Row>
                 <Beans/> 

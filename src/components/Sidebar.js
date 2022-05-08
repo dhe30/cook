@@ -1,4 +1,4 @@
-import { Row, Container, Navbar, Col} from 'react-bootstrap';
+import { Row, Container, Navbar, Col, Stack} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -9,38 +9,76 @@ import { useState, useContext } from 'react';
 import { QueryContextProvider } from '../store/Beans-context';
 import QueryContext from '../store/Beans-context';
 function Sidebar(props){
+
   const [typed, setTyped] = useState('');
+  const [sugges, setSugges] = useState([]);
   const beansContext = useContext(QueryContext);
-  function handler(event){
-    setTyped(event.target.value)
+  function handleChange(text){
+
+    setTyped(text);
+
+    console.log(typed);
+    fetch(`https://api.edamam.com/auto-complete?app_id=f426f10d&app_key=2d5bf94e3aab75005018d795879e50d6&q=${text}&limit=3`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setSugges(data);
+            });
+          
   }
   const navigate = useNavigate();
   function goToRecipe(){
+    console.log(typed);
+
     beansContext.addNewQuery(typed);
     console.log(typed);
     console.log(beansContext.query);
     navigate('/filler');
+  }
+  const clickHandler = (text)=>{
+    setTyped(text);
+
   }
   return(
     <QueryContextProvider>
     <Col>
       <div className='fixed'>
     <Container className = 'sidebar'>
-      <Row>
+      <Row style = {{backgroundColor: ''}}>
         <div className='flexar'>
         <h1>FIlter</h1>
-        <Button id = 'MenuButton' onClick={props.onClick}>X</Button>
+        <Button id = 'MenuButton-2' onClick={props.onClick}>X</Button>
         </div>
-      <InputGroup className = "mb-3">
+      <InputGroup className = "">
         <Button onClick = {goToRecipe}>
           Search
         </Button>
+        
         <FormControl
+
         placeholder='Search'
-        onChange={handler}
+        onChange={e => handleChange(e.target.value)}
+        value={typed}
+        onBlur = {()=>{
+          setTimeout(() =>{
+            setSugges([]);
+          }, 150)
+        }}
         />
       </InputGroup>
-          
+      <div id='hope'>
+      {sugges && sugges.map((sugge, i) =>{
+          if (i < 3){
+            return (
+              <Stack id = 'autocomp' onClick={() => clickHandler(sugge)}>
+               <div>
+             {sugge}
+             </div>
+             </Stack>);
+          }
+        }
+        )}
+        </div>
       </Row>
       <Row>
       <ul>
