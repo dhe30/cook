@@ -200,3 +200,11 @@ li {
 #autocomp:hover{
   background-color: rgb(148, 193, 193);
 }
+#cards{
+  margin: 0 auto;
+  max-width: 1800px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+
+}
