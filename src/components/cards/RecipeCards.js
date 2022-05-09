@@ -4,9 +4,17 @@ import {useNavigate } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../../index.css";
+import RecipeInstructionsContext from '../../store/Instructions-context';
+import { useContext } from 'react';
 
 function RecipeCards(props) {
     const navigate = useNavigate();
+    const magma = useContext(RecipeInstructionsContext);
+
+    function addNewRecipeInstructions(egg) {
+        magma.addNewRecipeInstructions(egg);
+        console.log(egg);
+    }
 
     function goToRecipePage(props) {
         console.log(props);
@@ -22,7 +30,7 @@ function RecipeCards(props) {
             </Col>
 
             <Col lg = {4} id = "card">
-                <Link to = '/recipe'>
+                <Link to = '/recipe' onClick = {() => addNewRecipeInstructions(props.uri)}>
                     <img src = {props.image} id = "image-position"/>
                 </Link>
             </Col>
