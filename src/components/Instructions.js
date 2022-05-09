@@ -5,8 +5,21 @@ import { Row, Col } from 'react-bootstrap';
 
 function Instructions() {
     const magma = useContext(RecipeInstructionsContext);
-    
-    return (console.log(magma.recipeInstructions));
+    const [recipes, setRecipes] = useState({loading: false, repos: null,});
+
+    useEffect(() => {
+        setRecipes({loading: true});
+        fetch(`${magma.recipeInstructions}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setRecipes({loading: false, repos: data});
+                console.log(data);
+            });
+    }, [setRecipes]);
+
+    return (
+        <Container/>
+    );
 }
 
 export default Instructions;

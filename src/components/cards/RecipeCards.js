@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../../index.css";
 import RecipeInstructionsContext from '../../store/Instructions-context';
+import RecipeInstructionsContextProvider from '../../store/Instructions-context';
 import { useContext } from 'react';
 
 function RecipeCards(props) {
@@ -22,39 +23,41 @@ function RecipeCards(props) {
     }
 
     return (
-        <Container fluid >
-            <Col id = "card" className = "topBorders">
-                <h1 className = "center">
-                    {props.label} 
-                </h1>
-            </Col>
+        <RecipeInstructionsContextProvider>
+            <Container fluid >
+                <Col id = "card" className = "topBorders">
+                    <h1 className = "center">
+                        {props.label} 
+                    </h1>
+                </Col>
 
-            <Col lg = {4} id = "card">
-                <Link to = '/recipe' onClick = {() => addNewRecipeInstructions(props.uri)}>
-                    <img src = {props.image} id = "image-position"/>
-                </Link>
-            </Col>
-                
-            <Col lg = {4} id = "card" className = "bottomBorders">
-                <ul className = "noBullet">
-                    <li>
-                        {Math.round(props.cal)} calories
-                    </li>
+                <Col lg = {4} id = "card">
+                    <Link to = '/recipe' onClick = {() => addNewRecipeInstructions(props.uri)}>
+                        <img src = {props.image} id = "image-position"/>
+                    </Link>
+                </Col>
                     
-                    {props.cuisine.map((type) => {
-                        return (
-                            <li>
-                                {type} cuisine
-                            </li>
-                        )
-                    })}
+                <Col lg = {4} id = "card" className = "bottomBorders">
+                    <ul className = "noBullet">
+                        <li>
+                            {Math.round(props.cal)} calories
+                        </li>
+                        
+                        {props.cuisine.map((type) => {
+                            return (
+                                <li>
+                                    {type} cuisine
+                                </li>
+                            )
+                        })}
 
-                    <li>
-                        {props.prepTime} minutes
-                    </li>
-                </ul>
-            </Col>
-        </Container>
+                        <li>
+                            {props.prepTime} minutes
+                        </li>
+                    </ul>
+                </Col>
+            </Container>
+        </RecipeInstructionsContextProvider>
     )
 }
 
