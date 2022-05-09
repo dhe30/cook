@@ -4,15 +4,15 @@ import {useNavigate } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../../index.css";
-import RecipeInstructionsContext from '../../store/Instructions-context';
-import RecipeInstructionsContextProvider from '../../store/Instructions-context';
+import { QueryContextProvider } from '../../store/Beans-context';
+import QueryContext from '../../store/Beans-context';
 import { useContext } from 'react';
 
 function RecipeCards(props) {
     const navigate = useNavigate();
-    const magma = useContext(RecipeInstructionsContext);
+    const magma = useContext(QueryContext);
 
-    function addNewRecipeInstructions(egg) {
+    function addNewRecipeInstruction(egg) {
         magma.addNewRecipeInstructions(egg);
         console.log(egg);
     }
@@ -23,7 +23,7 @@ function RecipeCards(props) {
     }
 
     return (
-        <RecipeInstructionsContextProvider>
+        <QueryContextProvider>
             <Container fluid >
                 <Col id = "card" className = "topBorders">
                     <h1 className = "center">
@@ -32,8 +32,8 @@ function RecipeCards(props) {
                 </Col>
 
                 <Col lg = {4} id = "card">
-                    <Link to = '/recipe' onClick = {() => addNewRecipeInstructions(props.uri)}>
-                        <img src = {props.image} id = "image-position"/>
+                    <Link to = '/recipe' >
+                        <img src = {props.image} id = "image-position" onClick = {addNewRecipeInstruction(props.uri)}/>
                     </Link>
                 </Col>
                     
@@ -57,7 +57,7 @@ function RecipeCards(props) {
                     </ul>
                 </Col>
             </Container>
-        </RecipeInstructionsContextProvider>
+            </QueryContextProvider>
     )
 }
 

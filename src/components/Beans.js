@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import QueryContext from '../store/Beans-context';
 import { Row, Col } from 'react-bootstrap';
 import Lava from "./Lava";
+import RecipeInstructionsContextProvider from '../store/Instructions-context';
 
 function Beans() {
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
@@ -28,14 +29,14 @@ function Beans() {
         );
     } 
 return(
-    console.log(recipes.repos),
+    <RecipeInstructionsContextProvider>
         <Container>
             <Row>
                 <Lava recipes = {recipes.repos}/>
                 
             </Row>
         </Container>
-        
+        </RecipeInstructionsContextProvider>
     )
 }
 
