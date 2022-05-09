@@ -11,6 +11,8 @@ import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Row, Container, Navbar, Col } from 'react-bootstrap';
 import HomePage from './pages/HomePage.js';
 import RecipePage from './pages/RecipePage';
+import ActualRecipePage from './pages/ActualRecipePage';
+
 function App() {
   return (
 
@@ -20,6 +22,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path = '/filler' element = {<RecipePage/>}/>
+        </Routes>
+        <Routes>
+          <Route path = '/recipe' element = {<ActualRecipePage/>}/>
         </Routes>
       </Router>
 
