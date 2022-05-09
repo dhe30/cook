@@ -7,23 +7,15 @@ import "../index.css";
 
 function Lava(props){
     return (
-        <Container>
+        <Container class ="cards">
             {props.recipes.map((recs) => {
                 return (
-                    <Table>
-                        <tbody>
-                            <tr>
-                                <RecipeCards image = {recs.recipe.image}
-                                             label = {recs.recipe.label}
-                                             cal = {recs.recipe.calories}
-                                             prepTime = {recs.recipe.totalTime}
-                                             cuisine = {recs.recipe.cuisineType}>
-                                </RecipeCards> 
-                            </tr>
-                        </tbody>
-                        
-                    </Table>
-                    
+                    <RecipeCards image = {recs.recipe.image}
+                                    label = {recs.recipe.label}
+                                    cal = {recs.recipe.calories}
+                                    prepTime = {recs.recipe.totalTime}
+                                    cuisine = {recs.recipe.cuisineType}>
+                    </RecipeCards> 
                 )
             })}
         </Container>
