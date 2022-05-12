@@ -198,7 +198,11 @@ li {
 }
 .cards{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-
+  background-color: #10ef8a;
+}
+.murder{
+  border-style: dashed;
+  margin:auto;
 }

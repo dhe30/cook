@@ -7,20 +7,22 @@ import "../index.css";
 
 function Lava(props){ 
     return (
-        <Container>
+        
             <div class="cards">
             {props.recipes.map((recs) => {
                 return (
+                    <div class = "murder">
                     <RecipeCards image = {recs.recipe.image}
                                  label = {recs.recipe.label}
                                  cal = {recs.recipe.calories}
                                  prepTime = {recs.recipe.totalTime}
                                  cuisine = {recs.recipe.cuisineType}>
                     </RecipeCards> 
+                    </div>
                 )
             })}
             </div>
-        </Container>
+        
     )
 }
 export default Lava;
