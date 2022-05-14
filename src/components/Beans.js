@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import QueryContext from '../store/Beans-context';
 import { Row, Col } from 'react-bootstrap';
 import Lava from "./Lava";
+import axios from 'axios';
 
 function Beans() {
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
@@ -15,6 +16,7 @@ function Beans() {
             .then((res) => res.json())
             .then((data) => {
                 setRecipes({loading: false, repos: data.hits});
+                
             });
     }, [setRecipes]);
     
@@ -28,14 +30,13 @@ function Beans() {
         );
     } 
 return(
-    console.log(recipes.repos),
         <Container>
             <Row>
                 <Lava recipes = {recipes.repos}/>
                 
             </Row>
         </Container>
-        
+
     )
 }
 

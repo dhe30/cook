@@ -4,6 +4,7 @@ import { Container, Table } from "react-bootstrap";
 // import { Row, Col } from 'react-bootstrap';
 import RecipeCards from "./cards/RecipeCards";
 import "../index.css";
+import axios from 'axios';
 
 function Lava(props){ 
     return (
