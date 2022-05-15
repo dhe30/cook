@@ -9,6 +9,7 @@ import { useState, useContext } from 'react';
 import { QueryContextProvider } from '../store/Beans-context';
 import QueryContext from '../store/Beans-context';
 import {Accordion} from 'react-bootstrap';
+
 function Sidebar(props){
 
   const [typed, setTyped] = useState('');
@@ -44,7 +45,8 @@ function Sidebar(props){
     <QueryContextProvider>
     <Col>
       <div className='fixed'>
-    <Container className = 'sidebar'>
+    <Container className = "sidebar scrollbar scrollbar-primary  mt-5 mx-auto">
+      <Container id = "notMoving">
       <Row style = {{backgroundColor: ''}}>
         <div className='flexar'>
         <h1>FIlter</h1>
@@ -67,6 +69,7 @@ function Sidebar(props){
         }}
         />
       </InputGroup>
+      
       <div id='hope'>
       {sugges && sugges.map((sugge, i) =>{
           if (i < 3){
@@ -81,6 +84,7 @@ function Sidebar(props){
         )}
         </div>
       </Row>
+      </Container>
       <Row>
       <div class = "py-3">
       <Accordion>
