@@ -90,6 +90,11 @@ li {
   
 }
 
+.py-3{
+  position:relative;
+  top: 60px;
+}
+
 .check{
   display: inline-block;
   white-space: nowrap;
@@ -191,7 +196,7 @@ li {
 }
 #hope{
   position: fixed;
-
+  z-index:1000;
   margin-top: 95px;
 }
 #autocomp{
