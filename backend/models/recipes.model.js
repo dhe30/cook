@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const recipesSchema = new Schema({
   recipe:{},
+      label:{
+        type:String,
+      }
+  
 }, {
     timestamps: { createdAt: 'created_at' }
 });

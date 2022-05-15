@@ -11,6 +11,9 @@ function Lava(props){
         
             <div class="cards">
             {props.recipes.map((recs) => {
+                console.log(recs);
+                 axios.post('http://localhost:5000/recipes/add', recs)
+                 .then(res => console.log(res.data));
                 return (
                     <div class = "murder">
                     <RecipeCards image = {recs.recipe.image}
