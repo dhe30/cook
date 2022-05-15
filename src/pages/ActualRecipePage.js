@@ -6,13 +6,12 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 function ActualRecipePage() {
-    const [data, setData] = useState({recipe: null});
+    const [data, setData] = useState({recipe: null, label: ""});
     const location = useLocation();
     const key = location.state.substr(location.state.lastIndexOf("_"));
     useEffect(() => {
         axios.get(`http://localhost:5000/recipes/${key}`)
-                 .then(res => setData(res.data));
-                 console.log(data);
+                 .then(res => setData({recipe: res.data.recipe, label: res.data.recipe.label}));
     },[setData]);
     if (data === null || data === undefined){
         return(
@@ -25,10 +24,14 @@ function ActualRecipePage() {
         )
     }
     return (
-        console.log(data),
+        console.log(data.label),
         <Container fluid>
             <Row>
                 <Header/>
+                
+            </Row>
+            <Row>
+                {data.label}
             </Row>
         </Container>
     )
