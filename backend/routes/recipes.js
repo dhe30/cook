@@ -14,7 +14,8 @@ router.route('/add').post((req, res) => {
            console.log(err);
         }
         else if (existingRecipe === null){
-            const label = req.body.recipe.uri;
+            const label = req.body.recipe.uri.substr(req.body.recipe.uri.lastIndexOf("_"));
+            console.log(label);
             const recipe = req.body.recipe;
             const newRecipe = new Recipes({
                recipe,
@@ -32,11 +33,11 @@ router.route('/add').post((req, res) => {
     
 });
 
-router.route('/:id').get((req, res) => {
-    Recipes.findById(req.params.id)
+router.route('/:uri').get((req, res) => {
+    Recipes.findOne({ label : req.params.uri})
     .then(recipes => res.json(recipes))
     .catch(err => res.status(400).json('Error: ' + err));
-});
+    });
 
 router.route('/:id').delete((req, res) => {
     Recipes.findByIdAndDelete(req.params.id)

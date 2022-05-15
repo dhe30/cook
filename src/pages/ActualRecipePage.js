@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 function ActualRecipePage() {
     const location = useLocation();
-    const key = location.state;
+    const key = location.state.substr(location.state.lastIndexOf("_"));
     console.log(key);
     return (
         <Container fluid>
