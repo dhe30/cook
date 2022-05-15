@@ -91,14 +91,14 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Allergies</Accordion.Header>
           <Accordion.Body>
-          <form>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Crustcean</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Dairy</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Fish</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Mollusk</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Peanuts</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Soy</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Wheat</label></div>
+          <form className = "moveLeft">
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Crustcean</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Dairy</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Fish</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mollusk</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Peanuts</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Soy</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Wheat</label></div>
           </form>
           </Accordion.Body>
         </Accordion.Item>
@@ -111,25 +111,25 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Cuisine Style</Accordion.Header>
           <Accordion.Body>
-          <form>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">American</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Asian</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">British</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Carribean</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Central Europe</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Chinese</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Eastern Europe</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">French</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Indian</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Italian</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Japanese</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Kosher</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Mediterranean</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Mexican</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Middle Eastern</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Nordic</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">South American</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">South East Asian</label></div>
+          <form className = "moveLeft">
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">American</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Asian</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">British</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Carribean</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Central Europe</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Chinese</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Eastern Europe</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">French</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Indian</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Italian</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Japanese</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Kosher</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mediterranean</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mexican</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Middle Eastern</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Nordic</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">South American</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">South East Asian</label></div>
           </form>
           </Accordion.Body>
         </Accordion.Item>
@@ -142,23 +142,23 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Dietary Restrictions</Accordion.Header>
           <Accordion.Body>
-          <form>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Balanced</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">High Fiber</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">High Protein</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Low Carb</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Low Fat</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Low Sodium</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Keto Friendly</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Kidney Friendly</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">No Oil Added</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Paleo</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Pescatarian</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Pork Free</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Red Meat Free</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Sugar Conscious</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Vegan</label></div>
-            <div class="check"><input type= "checkbox"/><label class="checkbox">Vegetarian</label></div>
+          <form className = "moveLeft">
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Balanced</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">High Fiber</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">High Protein</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Low Carb</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Low Fat</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Low Sodium</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Keto Friendly</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Kidney Friendly</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">No Oil Added</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Paleo</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Pescatarian</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Pork Free</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Red Meat Free</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Sugar Conscious</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Vegan</label></div>
+            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Vegetarian</label></div>
           </form>
           </Accordion.Body>
         </Accordion.Item>

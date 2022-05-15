@@ -123,9 +123,15 @@ li {
 
 .check{
   display: inline-block;
+  position: relative;
   white-space: nowrap;
   margin:0;
   padding:0;
+}
+
+.moveLeft {
+  position: relative;
+  left: -140px;
 }
 #MenuButton-3{
   height:40px;

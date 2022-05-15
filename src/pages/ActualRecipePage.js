@@ -30,9 +30,9 @@ function ActualRecipePage() {
                 <Header/>
                 
             </Row>
-            <Row>
+            <h1>
                 {data.label}
-            </Row>
+            </h1>
         </Container>
     )
 }
