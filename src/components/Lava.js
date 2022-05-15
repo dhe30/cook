@@ -20,7 +20,8 @@ function Lava(props){
                                  label = {recs.recipe.label}
                                  cal = {recs.recipe.calories}
                                  prepTime = {recs.recipe.totalTime}
-                                 cuisine = {recs.recipe.cuisineType}>
+                                 cuisine = {recs.recipe.cuisineType}
+                                 uri = {recs.recipe.uri}>
                     </RecipeCards> 
                     </div>
                 )

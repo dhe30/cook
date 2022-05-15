@@ -4,18 +4,13 @@ import {useNavigate } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "../../index.css";
-import axios from 'axios';
 
 
 function RecipeCards(props) {
     const navigate = useNavigate();
 
     function addNewRecipeInstruction(egg) {
-        console.log(egg);
-       
-            axios.post('http://localhost:5000/recipes/add', egg)
-               .then(res => console.log(res.data));
-        
+        console.log(egg);      
     }
 
     function goToRecipePage(props) {
@@ -33,7 +28,7 @@ function RecipeCards(props) {
                 </Col>
 
                 <Col lg = {4} id = "card">
-                    <Link to = '/recipe' >
+                    <Link to = '/recipe' state = {props.uri}>
                         <img src = {props.image} id = "image-position" onClick = {() => addNewRecipeInstruction(props.uri)}/>
                     </Link>
                 </Col>
