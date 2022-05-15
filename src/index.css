@@ -116,11 +116,6 @@ li {
   
 }
 
-.py-3{
-  position:relative;
-  top: 60px;
-}
-
 .check{
   display: inline-block;
   position: relative;
@@ -170,6 +165,8 @@ li {
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: rgb(20, 123, 123);
+  padding-bottom: 20px;
 }
 .flexar{
   display: flex;
@@ -260,3 +257,14 @@ li {
   margin:auto;
 }
 
+.rightJustified {
+  position: absolute;
+  top: 150px;
+  right: 50px;
+  width: 70vh;
+  height: 70vh;
+}
+
+.margins {
+  margin-top: 50px;
+}

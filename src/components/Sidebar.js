@@ -86,7 +86,7 @@ function Sidebar(props){
       </Row>
       </Container>
       <Row>
-      <div class = "py-3">
+      <div>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Allergies</Accordion.Header>
@@ -106,7 +106,7 @@ function Sidebar(props){
       </div>
       </Row>
       <Row>
-      <div class = "py-3">
+      <div>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Cuisine Style</Accordion.Header>
@@ -137,7 +137,7 @@ function Sidebar(props){
       </div>
       </Row>
       <Row>
-      <div class = "py-3">
+      <div>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Dietary Restrictions</Accordion.Header>
