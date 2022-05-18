@@ -1,8 +1,9 @@
-import { Container } from "react-bootstrap";
+import { Container, Form, NavbarBrand } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useNavigate } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Clock from '../../assets/clock.png';
 import "../../index.css";
 
 
@@ -21,28 +22,29 @@ function RecipeCards(props) {
     return (
 
             <Container fluid >
-                <Col id = "card" className = "topBorders">
-                    <h1 className = "center">
+                <Row id = "card" className = "topBorders">
+                    <h3 className = "center">
                         {props.label} 
-                    </h1>
-                </Col>
+                    </h3>
+                </Row>
 
-                <Col lg = {4} id = "card">
+                <Row lg = {4} id = "card">
                     <Link to = '/recipe' state = {props.uri}>
                         <img src = {props.image} id = "image-position" onClick = {() => addNewRecipeInstruction(props.uri)}/>
                     </Link>
-                </Col>
+                </Row>
                     
-                <Col lg = {4} id = "card" className = "bottomBorders">
-                    <ul className = "noBullet">
-                        <li>
-                            {Math.round(props.cal)} calories
-                        </li>
-                        
-                        {props.cuisine.map((type) => {
+                <Row id = "card">
+                    <Col><div className = 'Splatter'> {Math.round(props.cal)} calories</div></Col>
+                    <Col><div className = 'Splattera'><img src={Clock} className = 'fancy'/>{props.prepTime} minutes </div></Col>
+                    
+                    
+                </Row>
+                <Row>
+                {props.cuisine.map((type) => {
                             return (
                                 <li>
-                                    {type} cuisine
+                                    {type} 
                                 </li>
                             )
                         })}
@@ -50,8 +52,7 @@ function RecipeCards(props) {
                         <li>
                             {props.prepTime} minutes
                         </li>
-                    </ul>
-                </Col>
+                </Row>
             </Container>
 
     )

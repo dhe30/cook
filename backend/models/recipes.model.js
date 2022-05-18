@@ -6,7 +6,8 @@ const recipesSchema = new Schema({
   recipe:{},
       label:{
         type:String,
-      }
+      },
+      image:{},
   
 }, {
     timestamps: { createdAt: 'created_at' }

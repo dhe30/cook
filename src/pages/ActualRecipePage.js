@@ -25,7 +25,7 @@ function ActualRecipePage() {
         )
     }
     return (
-        console.log(data.label),
+        console.log(data.image),
         <Container fluid>
             <Row>
                 <Header/>
@@ -51,8 +51,8 @@ function ActualRecipePage() {
                 </Col>
 
                 <Col>
-                    <img src = {data.image} className = "rightJustified">
-                    </img> 
+                    <img src = {data.image} className = "rightJustified"/>
+                     
                 </Col>
             </Row>
         </Container>

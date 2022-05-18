@@ -1,7 +1,7 @@
 .header {
   width: 100%;
-  background-color: #6ce7b0;
-  opacity: 0.6;
+  background-color: #a0b647;
+  opacity: 0.8;
   box-sizing: border-box;
   display: flex;
   font-size: 22px;
@@ -16,7 +16,7 @@
 }
 .background {
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7),60%,transparent),
-  url('./assets/Fairbanks-Aurora.jpg');
+  url('./assets/sunflower.jpg');
   background-size: cover;
   background-Repeat:no-repeat;
   height:100vh;
@@ -25,7 +25,7 @@
   background-attachment: fixed;
 }
 .sidebar{
-  background-color :rgb(20, 123, 123);
+  background-color :rgb(138, 135, 41);
   z-index: 100;
   height: 80vh;
   margin-top:20px;
@@ -164,9 +164,11 @@ li {
 #notMoving {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background-color: rgb(20, 123, 123);
+  z-index: 100;
+  background-color: rgb(191, 188, 31,0.8);
   padding-bottom: 20px;
+  padding-top:20px;
+  border-bottom-left-radius: 10px;
 }
 .flexar{
   display: flex;
@@ -198,7 +200,7 @@ li {
 }
 
 #card {
-  background-color: #ca56a5;
+  background-color: #ff976d;
   display: flex;
   justify-content: left;
   width: 300px;
@@ -216,7 +218,7 @@ li {
 
 #image-position {
   position: relative;
-  
+  margin-left: -12px;
 }
 
 .noBullet {
@@ -226,17 +228,20 @@ li {
 .center {
   margin:auto;
   text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 5px;
 }
 #hope{
-  position: fixed;
-  z-index:1000;
+  position: absolute;
+  z-index:1001;
   margin-top: 95px;
 }
 #autocomp{
+  top:0;
   background-color: aliceblue;
   margin-left: 72px;
-  width: 272px;
-  z-index: 1000;
+  width: 220px;
+  z-index: 1001;
   margin-bottom: 0px;
   padding-left: 10px;
 }
@@ -250,7 +255,7 @@ li {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-  background-color: #10ef8a;
+  background-color:  rgb(150, 153, 153);
 }
 .murder{
   border-style: dashed;
@@ -267,4 +272,36 @@ li {
 
 .margins {
   margin-top: 50px;
+}
+
+.Taylor_Swift{
+  padding-top: 20px;
+}
+
+.fontastica{
+  font-family:'Rockwell', serif;
+}
+
+.Splatter{
+  padding-top: 5px;
+  width: 130px;
+}
+
+.Splattera{
+  padding-top: 5px;
+}
+
+.fancy{
+  padding-right: 5px;
+}
+
+.lovely{
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7),60%,transparent),
+  url('./assets/yellow-autumn-leaves.jpg');
+  background-size: cover;
+  background-Repeat:no-repeat;
+  height:100vh;
+
+  background-position: center;
+  background-attachment: fixed;
 }

@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { useCallback } = require('react');
 let Recipes = require('../models/recipes.model');
 
 router.route('/').get((req, res) => {
-    Recipes.find()
-    .then(recipes => res.json(recipes))
+    Recipes.aggregate([{ $sample:{size:1}}])
+    .then(recipes => res.json(recipes[0].recipe.image))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -17,9 +16,11 @@ router.route('/add').post((req, res) => {
             const label = req.body.recipe.uri.substr(req.body.recipe.uri.lastIndexOf("_"));
             console.log(label);
             const recipe = req.body.recipe;
+            const image = req.body.recipe.image;
             const newRecipe = new Recipes({
                recipe,
                 label,
+                image,
             });
   
             newRecipe.save()
@@ -38,22 +39,5 @@ router.route('/:uri').get((req, res) => {
     .then(recipes => res.json(recipes))
     .catch(err => res.status(400).json('Error: ' + err));
     });
-
-router.route('/:id').delete((req, res) => {
-    Recipes.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Recipe deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.route('/update/:id').post((req, res) => {
-    Recipes.findById(req.params.id)
-    .then(recipe => {
-        recipe.recipe = req.body.recipe;
-        recipe.save()
-        .then(() => res.json('Recipe updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
-});
 
 module.exports = router;

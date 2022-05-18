@@ -49,7 +49,7 @@ function Sidebar(props){
       <Container id = "notMoving">
       <Row style = {{backgroundColor: ''}}>
         <div className='flexar'>
-        <h1>FIlter</h1>
+        <h1 className='fontastica'>Filter</h1>
         <Button id = 'MenuButton-2' onClick={props.onClick}>X</Button>
         </div>
       <InputGroup className = "">
@@ -85,7 +85,7 @@ function Sidebar(props){
         </div>
       </Row>
       </Container>
-      <Row>
+      <Row className = "Taylor_Swift">
       <div>
       <Accordion>
         <Accordion.Item eventKey="0">

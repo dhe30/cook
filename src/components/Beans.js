@@ -30,7 +30,12 @@ function Beans() {
         );
     } 
 return(
-        <Container>
+        <Container className="lovely">
+            <Row>
+                <h1>
+                Back? ------ Results for '{beansContext.query}'
+                </h1>
+            </Row>
             <Row>
                 <Lava recipes = {recipes.repos}/>
                 
