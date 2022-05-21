@@ -310,12 +310,12 @@ li {
 .sidebarpos{
   position: fixed;
   top: 80px;
-  margin-left: 15vh;
+  margin-left: 15px;
   animation-name: love;
   animation-duration: 4s;
 }
 @keyframes love {
   0%   {margin-left: -450px;}
-  20%  {margin-left: 15vh;}
+  15%  {margin-left: 15px;}
 
 }
