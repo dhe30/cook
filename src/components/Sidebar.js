@@ -9,6 +9,7 @@ import { useState, useContext } from 'react';
 import { QueryContextProvider } from '../store/Beans-context';
 import QueryContext from '../store/Beans-context';
 import {Accordion} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 
 function Sidebar(props){
 
@@ -16,7 +17,6 @@ function Sidebar(props){
   const [sugges, setSugges] = useState([]);
   const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
   const beansContext = useContext(QueryContext);
-  const [checked, setChecked] = useState(false);
 
   const checkboxes = [];
   
@@ -35,23 +35,22 @@ function Sidebar(props){
   }
 
   function changeCheckbox(text) {
-    setChecked(!checked);
     let index = checkboxes.indexOf(text);
     if (index == -1) {
       checkboxes.push(text);
+      console.log("Added " + text);
     } else {
       checkboxes.splice(index, 1);
+      console.log("Removed: " + text);
     }
-    console.log(text);
+
   }
-  const handleChange2 = () => {
-    setChecked(!checked);
-  };
 
   const navigate = useNavigate();
   function goToRecipe(){
     console.log(typed);
 
+    
     beansContext.addNewQuery(typed);
     console.log(typed);
     console.log(beansContext.query);
@@ -111,20 +110,50 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Allergies</Accordion.Header>
           <Accordion.Body>
-          <form className = "moveLeft">
-            <div class="check">
-              <input type= "checkbox" checked = {checked} onChange = {handleChange2}/>
+          
+          {// this is the weird looking block comment 
+          }
+          {/* <Form>
+            {['Crustacean', 'Dairy', 'Fish', 'Mollusk', 'Peanuts', 'Soy', 'Wheat'].map((name) => (
+              <div key={`default-${name}`} className = "checkbox-size">
+                <Form.Check className = 'check' 
+                  onChange = {() => changeCheckbox(`${name}`)}
+                  type = 'checkbox'
+                  id={`default-${name}`}
+                  label={name}
+                />
+              </div>
+            ))}
+          </Form> */}
+
+          {// this is Samuel's block
+          }
+          {/* <form className = "moveLeft">
+            <div className="check">
+              <input type= "checkbox"/>
               <label className = "moveLeft">
                 Crustacean
               </label>
             </div>
-            <div class="check"><input type= "checkbox" onClick = {changeCheckbox("frog")}/><label className = "moveLeft">Dairy</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Fish</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mollusk</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Peanuts</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Soy</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Wheat</label></div>
-          </form>
+            <div className="check"><input type= "checkbox" onClick = {changeCheckbox("frog")}/><label className = "moveLeft">Dairy</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Fish</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Mollusk</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Peanuts</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Soy</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Wheat</label></div>
+          </form> */}
+
+          <Form>
+            {['Crustacean', 'Dairy', 'Fish', 'Mollusk', 'Peanuts', 'Soy', 'Wheat'].map((name) => (
+              <div className = "fixing">
+                <input type= "checkbox" onChange = {() => changeCheckbox(`${name}`)}/>
+                <label className = "moveLeft">
+                  {name}
+                </label>
+              </div>
+            ))}
+          </Form> 
+          
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -136,26 +165,36 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Cuisine Style</Accordion.Header>
           <Accordion.Body>
-          <form className = "moveLeft">
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">American</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Asian</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">British</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Carribean</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Central Europe</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Chinese</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Eastern Europe</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">French</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Indian</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Italian</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Japanese</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Kosher</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mediterranean</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mexican</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Middle Eastern</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Nordic</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">South American</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">South East Asian</label></div>
-          </form>
+          <Form>
+            {['American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'].map((name) => (
+              <div className = "fixing">
+                <input type= "checkbox" onChange = {() => changeCheckbox(`${name}`)}/>
+                <label className = "moveLeft">
+                  {name}
+                </label>
+              </div>
+            ))}
+          </Form>
+          {/* <form className = "moveLeft">
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">American</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Asian</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">British</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Caribbean</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Central Europe</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Chinese</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Eastern Europe</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">French</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Indian</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Italian</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Japanese</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Kosher</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Mediterranean</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Mexican</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Middle Eastern</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Nordic</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">South American</label></div>
+            <div className="check"><input type= "checkbox"/><label className = "moveLeft">South East Asian</label></div>
+          </form> */}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -167,24 +206,34 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Dietary Restrictions</Accordion.Header>
           <Accordion.Body>
-          <form className = "moveLeft">
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Balanced</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">High Fiber</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">High Protein</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Low Carb</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Low Fat</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Low Sodium</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Keto Friendly</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Kidney Friendly</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">No Oil Added</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Paleo</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Pescatarian</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Pork Free</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Red Meat Free</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Sugar Conscious</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Vegan</label></div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Vegetarian</label></div>
-          </form>
+          <Form>
+            {['Balanced', 'High Fiber', 'High Protein', 'Low Carb', 'Low Fat', 'Low Sodium', 'Keto Friendly', 'No Oil Added', 'Paleo', 'Pescatarian', 'Pork Free', 'Red Meat Free', 'Sugar Conscious', 'Vegan', 'Vegetarian'].map((name) => (
+              <div className = "fixing">
+                <input type= "checkbox" onChange = {() => changeCheckbox(`${name}`)}/>
+                <label className = "moveLeft">
+                  {name}
+                </label>
+              </div>
+            ))}
+          </Form>
+            {/* <form className = "moveLeft">
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Balanced</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">High Fiber</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">High Protein</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Low Carb</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Low Fat</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Low Sodium</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Keto Friendly</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Kidney Friendly</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">No Oil Added</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Paleo</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Pescatarian</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Pork Free</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Red Meat Free</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Sugar Conscious</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Vegan</label></div>
+              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Vegetarian</label></div>
+            </form> */}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
