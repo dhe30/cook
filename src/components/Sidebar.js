@@ -108,12 +108,12 @@ function Sidebar(props){
           <Accordion.Body>
           <form className = "moveLeft">
             <div class="check">
-              <input type= "checkbox" onClick = {changeCheckbox("frog")}/>
+              <input type= "checkbox" />
               <label className = "moveLeft">
                 Crustacean
               </label>
             </div>
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Dairy</label></div>
+            <div class="check"><input type= "checkbox" onClick = {changeCheckbox("frog")}/><label className = "moveLeft">Dairy</label></div>
             <div class="check"><input type= "checkbox"/><label className = "moveLeft">Fish</label></div>
             <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mollusk</label></div>
             <div class="check"><input type= "checkbox"/><label className = "moveLeft">Peanuts</label></div>
