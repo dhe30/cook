@@ -53,10 +53,10 @@
 
 /* custom colors  */
 .scrollbar-primary::-webkit-scrollbar {
-  background-color: rgb(20, 123, 123);
+  background-color: rgb(138, 135, 41);
 }
 .scrollbar-primary {
-  scrollbar-color: #4285f4 rgb(20, 123, 123);
+  scrollbar-color: #4285f4 rgb(138, 135, 41);
 }
 .scrollbar-primary::-webkit-scrollbar-thumb {
   border-radius: 10px;
@@ -139,7 +139,7 @@ li {
   width: 70px;
   height:40px;
   box-shadow: none;
-  background-color: rgb(20, 123, 123);
+  background-color: rgb(191, 188, 31,0.8);
   border-radius: 30px;
 }
 #MenuButton {
@@ -148,7 +148,7 @@ li {
   margin-left: 45%;
   width: 70px;
   box-shadow: none;
-  background-color: rgb(20, 123, 123);
+  background-color: rgb(191, 188, 31,0.8);
   border-radius: 30px;
 }
 #explain {

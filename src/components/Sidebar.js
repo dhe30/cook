@@ -14,7 +14,11 @@ function Sidebar(props){
 
   const [typed, setTyped] = useState('');
   const [sugges, setSugges] = useState([]);
+  const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
   const beansContext = useContext(QueryContext);
+
+  const checkboxes = new Array();
+  
   function handleChange(text){
 
     setTyped(text);
@@ -28,6 +32,17 @@ function Sidebar(props){
             });
           
   }
+
+  function changeCheckbox(text) {
+    let index = Array.indexOf(text);
+    if (index == -1) {
+      checkboxes.push(text);
+    } else {
+      checkboxes.splice(index, 1);
+    }
+    console.log(text);
+  }
+
   const navigate = useNavigate();
   function goToRecipe(){
     console.log(typed);
@@ -92,7 +107,12 @@ function Sidebar(props){
           <Accordion.Header>Allergies</Accordion.Header>
           <Accordion.Body>
           <form className = "moveLeft">
-            <div class="check"><input type= "checkbox"/><label className = "moveLeft">Crustcean</label></div>
+            <div class="check">
+              <input type= "checkbox" />
+              <label className = "moveLeft">
+                Crustacean
+              </label>
+            </div>
             <div class="check"><input type= "checkbox"/><label className = "moveLeft">Dairy</label></div>
             <div class="check"><input type= "checkbox"/><label className = "moveLeft">Fish</label></div>
             <div class="check"><input type= "checkbox"/><label className = "moveLeft">Mollusk</label></div>
