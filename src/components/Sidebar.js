@@ -17,7 +17,7 @@ function Sidebar(props){
   const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
   const beansContext = useContext(QueryContext);
 
-  const checkboxes = new Array();
+  const checkboxes = [];
   
   function handleChange(text){
 
@@ -34,7 +34,7 @@ function Sidebar(props){
   }
 
   function changeCheckbox(text) {
-    let index = Array.indexOf(text);
+    let index = checkboxes.indexOf(text);
     if (index == -1) {
       checkboxes.push(text);
     } else {
