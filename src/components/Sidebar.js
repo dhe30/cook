@@ -19,6 +19,7 @@ function Sidebar(props){
   const beansContext = useContext(QueryContext);
 
   const checkboxes = [];
+  let newString = "";
   
   function handleChange(text){
 
@@ -50,9 +51,14 @@ function Sidebar(props){
   function goToRecipe(){
     console.log(typed);
 
-    
-    beansContext.addNewQuery(typed);
-    console.log(typed);
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (i !== 0) {
+        newString += " ";
+      }
+      newString += checkboxes[i];
+    }
+    beansContext.addNewQuery(typed + " " + newString);
+    console.log(typed + " " + newString);
     console.log(beansContext.query);
     navigate('/filler');
   }
