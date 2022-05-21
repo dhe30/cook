@@ -7,9 +7,10 @@ import Forest from '../assets/Forest_Background.jpeg';
 import {useState} from 'react';
 import { Row, Container, Navbar, Stack } from 'react-bootstrap';
 function Filter(){
-    const [SBIsOpen, setSBIsOpen] = useState(false);
-
+    const [SBIsOpen, setSBIsOpen] = useState(true);
+    const [side, setSide] = useState("sidebarpos");
     function opener() {
+        setSide("");
         setSBIsOpen(!SBIsOpen);
      }
      return (
@@ -17,7 +18,7 @@ function Filter(){
             <Row>
                 {SBIsOpen ? 
                 (<Stack gap = {3}>
-                <Button id = 'MenuButton'  onClick = {opener}>
+                <Button id = "MenuButton"  onClick = {opener}>
                     <img id = 'menuIcon' src = {menuIcon}/>
                 </Button>
                 <Row id = 'explain'>
@@ -27,7 +28,9 @@ function Filter(){
                 </Row>
                 </Stack>
                 ) : 
+                <div className="sidebarpos">
                 <Sidebar onClick = {opener}/>
+                </div>
                 }
             </Row>
            
