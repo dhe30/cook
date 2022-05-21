@@ -16,6 +16,7 @@ function Sidebar(props){
   const [sugges, setSugges] = useState([]);
   const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
   const beansContext = useContext(QueryContext);
+  const [checked, setChecked] = useState(false);
 
   const checkboxes = [];
   
@@ -34,6 +35,7 @@ function Sidebar(props){
   }
 
   function changeCheckbox(text) {
+    setChecked(!checked);
     let index = checkboxes.indexOf(text);
     if (index == -1) {
       checkboxes.push(text);
@@ -42,6 +44,9 @@ function Sidebar(props){
     }
     console.log(text);
   }
+  const handleChange2 = () => {
+    setChecked(!checked);
+  };
 
   const navigate = useNavigate();
   function goToRecipe(){
@@ -108,7 +113,7 @@ function Sidebar(props){
           <Accordion.Body>
           <form className = "moveLeft">
             <div class="check">
-              <input type= "checkbox" />
+              <input type= "checkbox" checked = {checked} onChange = {handleChange2}/>
               <label className = "moveLeft">
                 Crustacean
               </label>
