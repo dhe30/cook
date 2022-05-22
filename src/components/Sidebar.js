@@ -1,4 +1,4 @@
-import { Row, Container, Navbar, Col, Stack} from 'react-bootstrap';
+import { Row, Container, Navbar, Col, Stack, AccordionCollapse} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -10,6 +10,7 @@ import { QueryContextProvider } from '../store/Beans-context';
 import QueryContext from '../store/Beans-context';
 import {Accordion} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
+import CheckboxList from './CheckboxList.js';
 
 function Sidebar(props){
 
@@ -17,22 +18,18 @@ function Sidebar(props){
   const [sugges, setSugges] = useState([]);
   const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
   const beansContext = useContext(QueryContext);
-
-  const checkboxes = [];
-  let newString = "";
   
+  let checkboxes = [];
+
   function handleChange(text){
-
     setTyped(text);
-
     console.log(typed);
     fetch(`https://api.edamam.com/auto-complete?app_id=f426f10d&app_key=2d5bf94e3aab75005018d795879e50d6&q=${text}&limit=3`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 setSugges(data);
-            });
-          
+            });   
   }
 
   function changeCheckbox(text) {
@@ -44,28 +41,30 @@ function Sidebar(props){
       checkboxes.splice(index, 1);
       console.log("Removed: " + text);
     }
-
+    console.log(checkboxes);
   }
 
   const navigate = useNavigate();
   function goToRecipe(){
     console.log(typed);
 
-    for (let i = 0; i < checkboxes.length; i++) {
-      if (i !== 0) {
-        newString += " ";
-      }
-      newString += checkboxes[i];
-    }
-    beansContext.addNewQuery(typed + " " + newString);
-    console.log(typed + " " + newString);
+    beansContext.addNewQuery(typed);
+    console.log(typed);
     console.log(beansContext.query);
+
     navigate('/filler');
+
+    console.log(listOfCheckboxes);
   }
   const clickHandler = (text)=>{
     setTyped(text);
 
   }
+
+  const sendCheckboxes = () => {
+    setListOfCheckboxes(checkboxes);
+  }
+
   return(
     <QueryContextProvider>
     <Col>
@@ -85,6 +84,7 @@ function Sidebar(props){
         <FormControl
 
         placeholder='Search'
+        onClick = {sendCheckboxes}
         onChange={e => handleChange(e.target.value)}
         value={typed}
         onBlur = {()=>{
@@ -148,7 +148,6 @@ function Sidebar(props){
             <div className="check"><input type= "checkbox"/><label className = "moveLeft">Soy</label></div>
             <div className="check"><input type= "checkbox"/><label className = "moveLeft">Wheat</label></div>
           </form> */}
-
           <Form>
             {['Crustacean', 'Dairy', 'Fish', 'Mollusk', 'Peanuts', 'Soy', 'Wheat'].map((name) => (
               <div className = "fixing">
