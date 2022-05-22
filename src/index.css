@@ -319,3 +319,163 @@ li {
   15%  {margin-left: 15px;}
 
 }
+
+#lover{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: small;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(0, 0, 0);
+}
+.america{
+  color: azure;
+  background-color: rgb(238, 115, 115);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+.india{
+  color: azure;
+  background-color: rgb(86, 255, 111);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;}
+
+.france{
+  color: azure;
+  background-color: rgb(86, 142, 255);
+  width: fit-content;padding-left:3px;
+  padding-right:3px;}
+
+.asia{
+  color: azure;
+  background-color: rgb(255, 238, 86);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.britain{
+  color: azure;
+  background-color: rgb(33, 91, 153);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.carribea{
+  color: azure;
+  background-color: rgb(47, 134, 135);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.centralEurope{
+  color: azure;
+  background-color: rgb(255, 86, 162);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.china{
+  color: azure;
+  background-color: rgb(202, 4, 4);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.eastEurope{
+  color: azure;
+  background-color: rgb(220, 7, 114);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.italy{
+  color: azure;
+  background-color: rgb(59, 144, 49);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.japan{
+  color: azure;
+  background-color: rgb(252, 237, 237);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.kosher{
+  color: azure;
+  background-color: rgb(255, 196, 86);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.mediterrania{
+  color: azure;
+  background-color: rgb(204, 129, 91);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.mexico{
+  color: azure;
+  background-color: rgb(243, 138, 1);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.middleEast{
+  color: azure;
+  background-color: rgb(173, 249, 165);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.nord{
+  color: azure;
+  background-color: rgb(177, 148, 255);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.southAmerica{
+  color: azure;
+  background-color: rgb(135, 194, 160);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+.southEastAsia{
+  color: azure;
+  background-color: rgb(165, 138, 5);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+
+}
+.world{
+  color: azure;
+  background-color: rgb(32, 88, 50);
+  width: fit-content;
+  padding-left:3px;
+  padding-right:3px;
+}
+#cardica{
+  background-color: #ff976d;
+  justify-content: left;
+  width: 300px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.naked{
+  border-style: dashed;
+
+}
+
+.fixede{
+  justify-content: flex;
+}
+
