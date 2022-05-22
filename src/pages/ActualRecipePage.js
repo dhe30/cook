@@ -5,6 +5,7 @@ import { Row, Container, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import styles from './Pages.module.css';
 function ActualRecipePage() {
     const [data, setData] = useState({recipe: null, label: "", ingredientsList: [], image: ""});
     const location = useLocation();
@@ -26,20 +27,21 @@ function ActualRecipePage() {
         )
     }
     return (
-        console.log(data.image),
-        <Container fluid>
+        <Container fluid className={styles.lord}>
+           
             <Row>
                 <Header/>
                 
             </Row>
-            
+            <div className={styles.harvard}>
+            <Container className={styles.stanford}>
             <Row>
-                <Col>
+                <Col className = {styles.ingr}>
                     <h1>
                         {data.label}
                     </h1>
 
-                    <ul className = "margins">
+                    <ul className = {styles.margins}>
                         Ingredients:
                         {data.ingredientsList.map((ingredient) => {
                             let amount = ingredient.quantity;
@@ -51,19 +53,19 @@ function ActualRecipePage() {
                             }
                             if(metric == true){
                                 if(measure === "tablespoon"){
-                                    measure = "milliliter";
+                                    measure = "mL";
                                     amount = amount * 15;
                                 }
                                 if(measure === "teaspoon"){
-                                    measure = "milliliter";
+                                    measure = "mL";
                                     amount = amount * 5;
                                 }
                                 if(measure === "cup"){
-                                    measure = "milliliter";
+                                    measure = "mL";
                                     amount = amount*250;
                                 }
                                 if(measure === "quart"){
-                                    measure = "milliliter";
+                                    measure = "mL";
                                     amount = amount*950;
                                 }
                                 if(measure === "gallon"){
@@ -80,7 +82,7 @@ function ActualRecipePage() {
                                 }
                             }
                             return (
-                                <li>
+                                <li className={styles.list}>
                                     {amount} {measure} {food}
                                 </li>
                             ) 
@@ -89,10 +91,12 @@ function ActualRecipePage() {
                 </Col>
 
                 <Col>
-                    <img src = {data.image} className = "rightJustified"/>
+                    <img src = {data.image} className = {styles.imager}/>
                      
                 </Col>
             </Row>
+            </Container>
+            </div>
         </Container>
     )
 }
