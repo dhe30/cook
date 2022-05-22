@@ -4,12 +4,15 @@ import QueryContext from '../store/Beans-context';
 import { Row, Col } from 'react-bootstrap';
 import Lava from "./Lava";
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 function Beans() {
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
     const beansContext = useContext(QueryContext);
     const ID = '8fbbf14f';
     const KEY = 'fc7f0f3e2b9c5a2f4d86aeb03030de5d'
+    const location = useLocation();
+
     useEffect(() => {
         setRecipes({loading: true});
         fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${beansContext.query}&app_id=${ID}&app_key=${KEY}`)

@@ -54,10 +54,10 @@
 
 /* custom colors  */
 .scrollbar-primary::-webkit-scrollbar {
-  background-color: rgb(20, 123, 123);
+  background-color: rgb(138, 135, 41);
 }
 .scrollbar-primary {
-  scrollbar-color: #4285f4 rgb(20, 123, 123);
+  scrollbar-color: #4285f4 rgb(138, 135, 41);
 }
 .scrollbar-primary::-webkit-scrollbar-thumb {
   border-radius: 10px;
@@ -140,7 +140,7 @@ li {
   width: 70px;
   height:40px;
   box-shadow: none;
-  background-color: rgb(20, 123, 123);
+  background-color: rgb(191, 188, 31,0.8);
   border-radius: 30px;
 }
 #MenuButton {
@@ -149,7 +149,7 @@ li {
   margin-left: 45%;
   width: 70px;
   box-shadow: none;
-  background-color: rgb(20, 123, 123);
+  background-color: rgb(191, 188, 31,0.8);
   border-radius: 30px;
 }
 #explain {
@@ -315,6 +315,7 @@ background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
 
 }
 
+<<<<<<< HEAD
 #lover{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: small;
@@ -481,3 +482,19 @@ background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
   padding-bottom: 10px;
 }
 
+=======
+#checkbox-size {
+  padding: 10px;
+  height: 30px;
+  width: 30px;
+}
+
+.fixing {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  margin:0;
+  padding:0;
+  left: -145px;
+}
+>>>>>>> master
