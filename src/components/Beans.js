@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import Lava from "./Lava";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import CheckboxList from './CheckboxList.js';
 
 function Beans() {
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
