@@ -219,7 +219,7 @@ li {
 
 #image-position {
   position: relative;
-  margin-left: -12px;
+  margin-left: -24px;
 }
 
 .noBullet {
@@ -256,10 +256,9 @@ li {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-  background-color:  rgb(150, 153, 153);
+  row-gap: 25px;
 }
 .murder{
-  border-style: dashed;
   margin:auto;
 }
 
@@ -285,7 +284,7 @@ li {
 
 .Splatter{
   padding-top: 5px;
-  width: 130px;
+  width: fit-content;
 }
 
 .Splattera{
@@ -297,14 +296,10 @@ li {
 }
 
 .lovely{
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.7),60%,transparent),
-  url('./assets/yellow-autumn-leaves.jpg');
-  background-size: cover;
-  background-Repeat:no-repeat;
-  height:100vh;
-
-  background-position: center;
-  background-attachment: fixed;
+  background-color: #e5e5f7d3;
+background-image:  linear-gradient(30deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(150deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(30deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(150deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(60deg, #c9c9c977 25%, transparent 25.5%, transparent 75%, #c9c9c977 75%, #c9c9c977), linear-gradient(60deg, #c9c9c977 25%, transparent 25.5%, transparent 75%, #c9c9c977 75%, #c9c9c977);
+background-size: 48px 84px;
+background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
 }
 
 .sidebarpos{
@@ -338,7 +333,7 @@ li {
 
 .india{
   color: azure;
-  background-color: rgb(86, 255, 111);
+  background-color: rgb(9, 58, 16);
   width: fit-content;
   padding-left:3px;
   padding-right:3px;}
@@ -351,7 +346,7 @@ li {
 
 .asia{
   color: azure;
-  background-color: rgb(255, 238, 86);
+  background-color: rgb(165, 149, 4);
   width: fit-content;
   padding-left:3px;
   padding-right:3px;
@@ -376,6 +371,7 @@ li {
   width: fit-content;
   padding-left:3px;
   padding-right:3px;
+  white-space: nowrap;
 }
 .china{
   color: azure;
@@ -399,7 +395,7 @@ li {
   padding-right:3px;
 }
 .japan{
-  color: azure;
+  color: rgb(184, 6, 6);
   background-color: rgb(252, 237, 237);
   width: fit-content;
   padding-left:3px;
@@ -428,7 +424,7 @@ li {
 }
 .middleEast{
   color: azure;
-  background-color: rgb(173, 249, 165);
+  background-color: rgb(98, 138, 94);
   width: fit-content;
   padding-left:3px;
   padding-right:3px;
@@ -463,11 +459,12 @@ li {
   padding-right:3px;
 }
 #cardica{
-  background-color: #ff976d;
+  background-color: #ffb699;
   justify-content: left;
-  width: 300px;
   padding-top: 10px;
   padding-left: 15px;
+  padding-bottom: 5px;
+  border-radius: 3px;
 }
 
 .naked{
@@ -477,5 +474,10 @@ li {
 
 .fixede{
   justify-content: flex;
+}
+
+.Results{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 

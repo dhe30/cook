@@ -31,9 +31,9 @@ function Beans() {
     } 
 return(
         <Container className="lovely">
-            <Row>
+            <Row className="Results">
                 <h1>
-                Back? ------ Results for '{beansContext.query}'
+                    Results for '{beansContext.query}'
                 </h1>
             </Row>
             <Row>

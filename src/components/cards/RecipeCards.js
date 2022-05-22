@@ -65,29 +65,29 @@ function RecipeCards(props) {
 
     return (
 
-            <Container fluid >
-                <Row id = "card" className = "topBorders">
+            <Container fluid className={styles.peter}>
+                <Row >
                     <h3 className = "center">
                         {props.label} 
                     </h3>
                 </Row>
 
-                <Row lg = {4} id = "card">
+                <Row>
                     <Link to = '/recipe' state = {props.uri}>
                         <img src = {props.image} id = "image-position" onClick = {() => addNewRecipeInstruction(props.uri)}/>
                     </Link>
                 </Row>
                     
-                <Row id = "card">
+                <Row>
                     <Col><div className = 'Splatter'> {Math.round(props.cal)} calories</div></Col>
-                    <Col><div className = 'Splattera'><img src={Clock} className = 'fancy'/>{props.prepTime} minutes </div></Col>
+                    <Col><div className = 'Splattera'><img src={Clock} className = 'fancy'/>{props.prepTime} mins </div></Col>
                     
                     
                 </Row>
                 <Row id = "cardica" >
                     Cuisine:
                 {props.cuisine.map((type) => {
-                    console.log("AAAAAAAAAAAAAA" + love)
+
                             return (
                                 
                                 <Col>
