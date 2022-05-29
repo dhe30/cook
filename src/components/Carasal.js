@@ -8,10 +8,23 @@ import { Row, Container, Navbar, CarouselItem } from 'react-bootstrap';
 import axios from 'axios';
 function Carasal(){
     const [data, setData] = useState({img1: null});
+    const [darta, setDarta] = useState({img2: null});
     useEffect(() => {
-        axios.get('http://localhost:5000/recipes/')
-                 .then(res => setData({img1: res.data}));
-                 console.log(data);
+        fetch(`http://localhost:5000/recipes/`)
+                 .then((res) => res.json())
+                 .then((data) => {
+                    const aids = data[0].self
+                    const hpv = data[1].self
+                    console.log(aids);
+                    return fetch(aids);
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(hpv);
+                console.log(data);
+                setData({recipe: data.recipe, label: data.recipe.label, ingredientsList: data.recipe.ingredients, image: data.recipe.image});
+                return fetch 
+            });
     },[setData]);
     if (data === null || data === undefined){
         return(

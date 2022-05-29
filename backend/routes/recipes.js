@@ -3,7 +3,7 @@ let Recipes = require('../models/recipes.model');
 
 router.route('/').get((req, res) => {
     Recipes.aggregate([{ $sample:{size:2}}])
-    .then(recipes => res.json({first: recipes[0].self, second: recipes[1].self}))
+    .then(recipes => res.json({recipes}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
