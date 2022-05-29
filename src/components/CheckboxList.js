@@ -1,3 +1,5 @@
+const allCheckboxes = [];
+
 function CheckboxList(props) {
     return (
         <div>

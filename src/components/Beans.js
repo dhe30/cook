@@ -6,6 +6,7 @@ import Lava from "./Lava";
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import CheckboxList from './CheckboxList.js';
+import { checkboxes } from "./Sidebar";
 
 function Beans() {
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
@@ -13,10 +14,35 @@ function Beans() {
     const ID = '8fbbf14f';
     const KEY = 'fc7f0f3e2b9c5a2f4d86aeb03030de5d'
     const location = useLocation();
+    const allCheckboxes = checkboxes; 
+    console.log(allCheckboxes); // indices 3, 4, 5 for some reason: 3 = cuisine, 4 = dietary restriction, 5 = allergy/health
+
+    let APIFetchURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${beansContext.query}&app_id=${ID}&app_key=${KEY}`;
+
+    if (checkboxes.length > 3) {
+        checkboxes.splice(0, 3);
+    }
+    let cuisineLength = 0;
+    while (cuisineLength < checkboxes[0].length) {
+        APIFetchURL += "&cuisineType=" + checkboxes[0][cuisineLength];
+        cuisineLength++;
+    }
+
+    let dietResLength = 0;
+    while (dietResLength < checkboxes[1].length) {
+        APIFetchURL += "&diet=" + checkboxes[1][dietResLength];
+        dietResLength++;
+    }
+
+    let healthLength = 0;
+    while(healthLength < checkboxes[2].length) {
+        APIFetchURL += "&health=" + checkboxes[2][healthLength];
+        healthLength++;
+    }
 
     useEffect(() => {
         setRecipes({loading: true});
-        fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${beansContext.query}&app_id=${ID}&app_key=${KEY}`)
+        fetch(APIFetchURL)
             .then((res) => res.json())
             .then((data) => {
                 setRecipes({loading: false, repos: data.hits});

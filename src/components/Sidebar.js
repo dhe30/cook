@@ -12,14 +12,22 @@ import {Accordion} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import CheckboxList from './CheckboxList.js';
 
+let checkboxes = [];
+
 function Sidebar(props){
 
   const [typed, setTyped] = useState('');
   const [sugges, setSugges] = useState([]);
   const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
+
   const beansContext = useContext(QueryContext);
-  
-  let checkboxes = [];
+
+  let cuisineList = [];
+  let dietList = [];
+  let healthList = [];
+
+  /* Cuisine, diet, health
+  */
 
   function handleChange(text){
     setTyped(text);
@@ -32,16 +40,16 @@ function Sidebar(props){
             });   
   }
 
-  function changeCheckbox(text) {
-    let index = checkboxes.indexOf(text);
+  function changeCheckbox(checkboxList, text) {
+    let index = checkboxList.indexOf(text);
     if (index == -1) {
-      checkboxes.push(text);
+      checkboxList.push(text);
       console.log("Added " + text);
     } else {
-      checkboxes.splice(index, 1);
+      checkboxList.splice(index, 1);
       console.log("Removed: " + text);
     }
-    console.log(checkboxes);
+    console.log(checkboxList);
   }
 
   const navigate = useNavigate();
@@ -56,12 +64,16 @@ function Sidebar(props){
 
     console.log(listOfCheckboxes);
   }
+  
   const clickHandler = (text)=>{
     setTyped(text);
 
   }
 
   const sendCheckboxes = () => {
+    checkboxes.push(cuisineList);
+    checkboxes.push(dietList);
+    checkboxes.push(healthList);
     setListOfCheckboxes(checkboxes);
   }
 
@@ -134,30 +146,20 @@ function Sidebar(props){
 
           {// this is Samuel's block
           }
-          {/* <form className = "moveLeft">
+          <form className = "moveLeft">
             <div className="check">
-              <input type= "checkbox"/>
+              <input type= "checkbox" onChange = {() => changeCheckbox(healthList, "crustacean-free")}/>
               <label className = "moveLeft">
                 Crustacean
               </label>
             </div>
-            <div className="check"><input type= "checkbox" onClick = {changeCheckbox("frog")}/><label className = "moveLeft">Dairy</label></div>
-            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Fish</label></div>
-            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Mollusk</label></div>
-            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Peanuts</label></div>
-            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Soy</label></div>
-            <div className="check"><input type= "checkbox"/><label className = "moveLeft">Wheat</label></div>
-          </form> */}
-          <Form>
-            {['Crustacean', 'Dairy', 'Fish', 'Mollusk', 'Peanuts', 'Soy', 'Wheat'].map((name) => (
-              <div className = "fixing">
-                <input type= "checkbox" onChange = {() => changeCheckbox(`${name}`)}/>
-                <label className = "moveLeft">
-                  {name}
-                </label>
-              </div>
-            ))}
-          </Form> 
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "dairy-free")}/><label className = "moveLeft">Dairy</label></div>
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "fish-free")}/><label className = "moveLeft">Fish</label></div>
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "mollusk-free")}/><label className = "moveLeft">Mollusk</label></div>
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "peanut-free")}/><label className = "moveLeft">Peanuts</label></div>
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "soy-free")}/><label className = "moveLeft">Soy</label></div>
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "wheat-free")}/><label className = "moveLeft">Wheat</label></div>
+          </form>
           
           </Accordion.Body>
         </Accordion.Item>
@@ -173,7 +175,7 @@ function Sidebar(props){
           <Form>
             {['American', 'Asian', 'British', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'South American', 'South East Asian'].map((name) => (
               <div className = "fixing">
-                <input type= "checkbox" onChange = {() => changeCheckbox(`${name}`)}/>
+                <input type= "checkbox" onChange = {() => changeCheckbox(cuisineList, `${name}`)}/>
                 <label className = "moveLeft">
                   {name}
                 </label>
@@ -211,7 +213,7 @@ function Sidebar(props){
         <Accordion.Item eventKey="0">
           <Accordion.Header>Dietary Restrictions</Accordion.Header>
           <Accordion.Body>
-          <Form>
+          {/* <Form>
             {['Balanced', 'High Fiber', 'High Protein', 'Low Carb', 'Low Fat', 'Low Sodium', 'Keto Friendly', 'No Oil Added', 'Paleo', 'Pescatarian', 'Pork Free', 'Red Meat Free', 'Sugar Conscious', 'Vegan', 'Vegetarian'].map((name) => (
               <div className = "fixing">
                 <input type= "checkbox" onChange = {() => changeCheckbox(`${name}`)}/>
@@ -220,25 +222,26 @@ function Sidebar(props){
                 </label>
               </div>
             ))}
-          </Form>
-            {/* <form className = "moveLeft">
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Balanced</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">High Fiber</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">High Protein</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Low Carb</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Low Fat</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Low Sodium</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Keto Friendly</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Kidney Friendly</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">No Oil Added</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Paleo</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Pescatarian</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Pork Free</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Red Meat Free</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Sugar Conscious</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Vegan</label></div>
-              <div className="check"><input type= "checkbox"/><label className = "moveLeft">Vegetarian</label></div>
-            </form> */}
+          </Form> */}
+
+            <form className = "moveLeft">
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(dietList, "balanced")}/><label className = "moveLeft">Balanced</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(dietList, "high-fiber")}/><label className = "moveLeft">High Fiber</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(dietList, "high-protein")}/><label className = "moveLeft">High Protein</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(dietList, "low-carb")}/><label className = "moveLeft">Low Carb</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(dietList, "low-fat")}/><label className = "moveLeft">Low Fat</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(dietList, "low-sodium")}/><label className = "moveLeft">Low Sodium</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "keto-friendly")}/><label className = "moveLeft">Keto Friendly</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "kidney-friendly")}/><label className = "moveLeft">Kidney Friendly</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "no-oil-added")}/><label className = "moveLeft">No Oil Added</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "paleo")}/><label className = "moveLeft">Paleo</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "pescatarian")}/><label className = "moveLeft">Pescatarian</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "pork-free")}/><label className = "moveLeft">Pork Free</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "red-meat-free")}/><label className = "moveLeft">Red Meat Free</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "sugar-conscious")}/><label className = "moveLeft">Sugar Conscious</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "vegan")}/><label className = "moveLeft">Vegan</label></div>
+              <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "vegetarian")}/><label className = "moveLeft">Vegetarian</label></div>
+            </form>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -259,3 +262,4 @@ function Sidebar(props){
 };
 
 export default Sidebar;
+export {checkboxes};
