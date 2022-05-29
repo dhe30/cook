@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './Pages.module.css';
+import  Bars from '../assets/bar.gif';
 function ActualRecipePage() {
     const [locatron, setLocatron] = useState({address: ""});
     const [data, setData] = useState({recipe: null, label: "", ingredientsList: [], image: ""});
@@ -28,22 +29,16 @@ function ActualRecipePage() {
                 
             });
     },[setLocatron]);
-    // useEffect(() => {
-    //     console.log(locatron.address);
-    //     fetch(locatron.address)
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //             setData({recipe: data.hits});
-                
-    //         });
-    // },[setData]);
-    if (data === null || data === undefined){
+    if (data.image === null || data.image === undefined){
         return(
-            <Container fluid>
-            <Row>
-                <Header/>
+            <Container fluid className= "Loading">
+             
+            <Row className = "Loading2">
+            <div>
                 LOADING...
+               
+                <img  className = "LoadingBars" src={Bars}/>
+                </div>
             </Row>
         </Container>
         )
@@ -56,16 +51,30 @@ function ActualRecipePage() {
                 <Header/>
                 
             </Row>
-            <div className={styles.harvard}>
-            <Container className={styles.stanford}>
-            <Row>
-                <Col className = {styles.ingr}>
+            <Row className = {styles.ill} ></Row>
+            <Row className = {styles.ill}>
+                <Col className = {styles.bougiee}></Col>
+                <Col className = {styles.colombia}>
                     <h1>
                         {data.label}
                     </h1>
+                    </Col>
+                    <Col></Col>
 
-                    <ul className = {styles.margins}>
-                        Ingredients:
+                    </Row>
+                    <Row className = {styles.ill}></Row>
+            <div className={styles.harvard}>
+            <Container className={styles.stanford}>
+            <Row>
+                
+                <Col>
+                    <img src = {data.image} className = {styles.imager}/>
+                     
+                </Col>
+            </Row>
+            <Row>
+            <Col className = {styles.ingr}>
+                    <ul className = {styles.cards}>
                         {data.ingredientsList.map((ingredient) => {
                             let amount = ingredient.quantity;
                             amount = Math.round((amount + Number.EPSILON) * 100) / 100;
@@ -74,7 +83,7 @@ function ActualRecipePage() {
                             if(measure === "<unit>"){
                                 measure ="";
                             }
-                            if(metric == true){
+                            if(metric === true){
                                 if(measure === "tablespoon"){
                                     measure = "mL";
                                     amount = amount * 15;
@@ -106,18 +115,14 @@ function ActualRecipePage() {
                             }
                             return (
                                 <li className={styles.list}>
-                                    {amount} {measure} {food}
+                                    <p className={styles.gag}> {amount} {measure} &nbsp;{food}</p>
                                 </li>
                             ) 
                         })}
                     </ul>
                 </Col>
 
-                <Col>
-                    <img src = {data.image} className = {styles.imager}/>
-                     
-                </Col>
-            </Row>
+                </Row>
             </Container>
             </div>
         </Container>

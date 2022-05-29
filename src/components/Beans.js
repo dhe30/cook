@@ -7,6 +7,9 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import CheckboxList from './CheckboxList.js';
 import { checkboxes } from "./Sidebar";
+import  Bars from '../assets/bar.gif';
+import Header from '../components/Header';
+import '../index.css'
 
 function Beans() {
     const [recipes, setRecipes] = useState({loading: false, repos: null,});
@@ -51,13 +54,18 @@ function Beans() {
     }, [setRecipes]);
     
     if (recipes.repos === undefined || recipes.repos === null){
-        return (
-            <Container>
-            <Row>
-                <h1>IS lOading..0-..</h1>
+        return(
+            <Container fluid className= "Loading">
+             
+            <Row className = "Loading2">
+            <div>
+                LOADING...
+               
+                <img  className = "LoadingBars" src={Bars}/>
+                </div>
             </Row>
-            </Container>
-        );
+        </Container>
+        )
     } 
 return(
         <Container className="lovely">

@@ -12,6 +12,7 @@ import { Row, Container, Navbar, Col } from 'react-bootstrap';
 import HomePage from './pages/HomePage.js';
 import RecipePage from './pages/RecipePage';
 import ActualRecipePage from './pages/ActualRecipePage';
+import Loading from './pages/Loading.js';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path = '/recipe' element = {<ActualRecipePage/>}/>
+        </Routes>
+        <Routes>
+          <Route path = '/loading' element = {<Loading/>}/>
         </Routes>
       </Router>
 

@@ -1,11 +1,13 @@
 .header {
   width: 100%;
+  height: 60px;
   background-color: #a0b647;
   opacity: 0.8;
   box-sizing: border-box;
   display: flex;
   font-size: 22px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  z-index: 3;
 }
 .logo{
   height: 80px;
@@ -284,7 +286,7 @@ li {
 }
 
 .lovely{
-  height:100vh;
+  height:100%;
   background-color: #e5e5f7d3;
 background-image:  linear-gradient(30deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(150deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(30deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(150deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(60deg, #c9c9c977 25%, transparent 25.5%, transparent 75%, #c9c9c977 75%, #c9c9c977), linear-gradient(60deg, #c9c9c977 25%, transparent 25.5%, transparent 75%, #c9c9c977 75%, #c9c9c977);
 background-size: 48px 84px;
@@ -487,4 +489,33 @@ background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
   margin:0;
   padding:0;
   left: -145px;
+}
+
+.rounde{
+  margin-left: 11%;
+}
+.Loading{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #6e6e7650;
+  background-image:  linear-gradient(30deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(150deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(30deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(150deg, #c9c9c9 12%, transparent 12.5%, transparent 87%, #c9c9c9 87.5%, #c9c9c9), linear-gradient(60deg, #c9c9c977 25%, transparent 25.5%, transparent 75%, #c9c9c977 75%, #c9c9c977), linear-gradient(60deg, #c9c9c977 25%, transparent 25.5%, transparent 75%, #c9c9c977 75%, #c9c9c977);
+background-size: 48px 84px;
+background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
+}
+.Loading2{
+  display: flex;
+  margin-top: 50vh;
+  margin-left: 50vw;
+  padding-top: 47vh;
+  padding-left: 45vw;
+}
+.LoadingBars{
+  display: fixed;
+  height: 80px;
+  width: 80px;
 }
