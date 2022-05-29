@@ -21,7 +21,7 @@ function RecipeCards(props) {
             case "british":
                 return "britain";
             case "caribbean":
-                return "carribea";
+                return "caribbean";
             case "central europe":
                 return "centralEurope";
             case "chinese":
@@ -56,11 +56,6 @@ function RecipeCards(props) {
     }
     function addNewRecipeInstruction(egg) {
         console.log(egg);      
-    }
-
-    function goToRecipePage(props) {
-        console.log(props);
-        navigate('/recipe');
     }
 
     return (
