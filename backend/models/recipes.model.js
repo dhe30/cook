@@ -8,7 +8,9 @@ const recipesSchema = new Schema({
         type:String,
       },
       image:{},
-  
+      self:{
+        type:String,
+      },
 }, {
     timestamps: { createdAt: 'created_at' }
 });

@@ -375,6 +375,8 @@ background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
   width: fit-content;
   padding-left:3px;
   padding-right:3px;
+  white-space: nowrap;
+
 }
 .italy{
   color: azure;
@@ -431,6 +433,8 @@ background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
   width: fit-content;
   padding-left:3px;
   padding-right:3px;
+  white-space: nowrap;
+
 }
 .southEastAsia{
   color: azure;

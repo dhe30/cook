@@ -7,15 +7,37 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './Pages.module.css';
 function ActualRecipePage() {
+    const [locatron, setLocatron] = useState({address: ""});
     const [data, setData] = useState({recipe: null, label: "", ingredientsList: [], image: ""});
     const location = useLocation();
     const key = location.state.substr(location.state.lastIndexOf("_"));
     var metric = true;
     useEffect(() => {
-        axios.get(`http://localhost:5000/recipes/${key}`)
-                 .then(res => setData({recipe: res.data.recipe, label: res.data.recipe.label, ingredientsList: res.data.recipe.ingredients,
-                                       image: res.data.recipe.image}));
-    },[setData]);
+        fetch(`http://localhost:5000/recipes/${key}`)
+                 .then((res) => res.json())
+                 .then((data) => {
+                    const aids = data.self
+                    setLocatron({address: data.self});
+                    console.log(aids);
+                    return fetch(aids);
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                console.log(data);
+                setData({recipe: data.recipe, label: data.recipe.label, ingredientsList: data.recipe.ingredients, image: data.recipe.image});
+                
+            });
+    },[setLocatron]);
+    // useEffect(() => {
+    //     console.log(locatron.address);
+    //     fetch(locatron.address)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             console.log(data);
+    //             setData({recipe: data.hits});
+                
+    //         });
+    // },[setData]);
     if (data === null || data === undefined){
         return(
             <Container fluid>
@@ -27,6 +49,7 @@ function ActualRecipePage() {
         )
     }
     return (
+        console.log(data.recipe),
         <Container fluid className={styles.lord}>
            
             <Row>

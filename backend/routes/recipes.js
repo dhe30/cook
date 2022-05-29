@@ -2,8 +2,8 @@ const router = require('express').Router();
 let Recipes = require('../models/recipes.model');
 
 router.route('/').get((req, res) => {
-    Recipes.aggregate([{ $sample:{size:1}}])
-    .then(recipes => res.json(recipes[0].recipe.image))
+    Recipes.aggregate([{ $sample:{size:2}}])
+    .then(recipes => res.json({first: recipes[0].self, second: recipes[1].self}))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -17,10 +17,12 @@ router.route('/add').post((req, res) => {
             console.log(label);
             const recipe = req.body.recipe;
             const image = req.body.recipe.image;
+            const self = req.body._links.self.href;
             const newRecipe = new Recipes({
                recipe,
                 label,
                 image,
+                self,
             });
   
             newRecipe.save()
