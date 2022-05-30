@@ -13,13 +13,13 @@ import {Form} from 'react-bootstrap';
 import CheckboxList from './CheckboxList.js';
 
 let checkboxes = [];
-
+let metric = false;
 function Sidebar(props){
 
   const [typed, setTyped] = useState('');
   const [sugges, setSugges] = useState([]);
   const [listOfCheckboxes, setListOfCheckboxes] = useState([]);
-
+ 
   const beansContext = useContext(QueryContext);
 
   let cuisineList = [];
@@ -147,12 +147,7 @@ function Sidebar(props){
           {// this is Samuel's block
           }
           <form className = "moveLeft">
-            <div className="check">
-              <input type= "checkbox" onChange = {() => changeCheckbox(healthList, "crustacean-free")}/>
-              <label className = "moveLeft">
-                Crustacean
-              </label>
-            </div>
+            <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "crustacean-free")}/><label className = "moveLeft">Crustacean</label></div>
             <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "dairy-free")}/><label className = "moveLeft">Dairy</label></div>
             <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "fish-free")}/><label className = "moveLeft">Fish</label></div>
             <div className="check"><input type= "checkbox" onChange = {() => changeCheckbox(healthList, "mollusk-free")}/><label className = "moveLeft">Mollusk</label></div>
@@ -253,7 +248,21 @@ function Sidebar(props){
       <Row>
       
       </Row>*/}
-    
+    <Row>
+      <div>
+      <Accordion>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Metric</Accordion.Header>
+          <Accordion.Body>
+          <label class="switch">
+          <input type="checkbox" onChange={() => {metric=!metric}}/>
+          <span class="slider"></span>
+          </label>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+      </div>
+      </Row>
     </Container>
     </div>
     </Col>
@@ -263,3 +272,4 @@ function Sidebar(props){
 
 export default Sidebar;
 export {checkboxes};
+export {metric};

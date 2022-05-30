@@ -9,12 +9,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './Pages.module.css';
 import  Bars from '../assets/bar.gif';
+import {metric} from '../components/Sidebar';
 function ActualRecipePage() {
     const [locatron, setLocatron] = useState({address: ""});
     const [data, setData] = useState({recipe: null, label: "", ingredientsList: [], image: ""});
     const location = useLocation();
     const key = location.state.substr(location.state.lastIndexOf("_"));
-    var metric = true;
     let ingr = [];
     useEffect(() => {
         fetch(`http://localhost:5000/recipes/${key}`)
@@ -152,5 +152,4 @@ function ActualRecipePage() {
         </Container>
     )
 }
-
 export default ActualRecipePage;
