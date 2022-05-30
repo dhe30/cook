@@ -1,7 +1,9 @@
 import '../index.css';
 import Header from '../components/Header';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Row, Container, Col } from 'react-bootstrap';
+import Carousel from "react-bootstrap/Carousel";
+
+import { Row, Container, Col, CarouselItem, NavbarBrand } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -13,6 +15,7 @@ function ActualRecipePage() {
     const location = useLocation();
     const key = location.state.substr(location.state.lastIndexOf("_"));
     var metric = true;
+    let ingr = [];
     useEffect(() => {
         fetch(`http://localhost:5000/recipes/${key}`)
                  .then((res) => res.json())
@@ -25,11 +28,11 @@ function ActualRecipePage() {
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
-                setData({recipe: data.recipe, label: data.recipe.label, ingredientsList: data.recipe.ingredients, image: data.recipe.image});
+                setData({recipe: data.recipe, label: data.recipe.label, ingredientsList: data.recipe.ingredients, image: data.recipe.image, source: data.recipe.url, sourcey: data.recipe.source});
                 
             });
     },[setLocatron]);
-    if (data.image === null || data.image === undefined){
+    if (data.sourcey === null || data.sourcey === undefined){
         return(
             <Container fluid className= "Loading">
              
@@ -52,15 +55,14 @@ function ActualRecipePage() {
                 
             </Row>
             <Row className = {styles.ill} ></Row>
-            <Row className = {styles.ill}>
-                <Col className = {styles.bougiee}></Col>
-                <Col className = {styles.colombia}>
+            <Row className = {styles.illiad}>
+                <div className = {styles.colombia}>
+                <Col>
                     <h1>
                         {data.label}
                     </h1>
                     </Col>
-                    <Col></Col>
-
+                    </div>
                     </Row>
                     <Row className = {styles.ill}></Row>
             <div className={styles.harvard}>
@@ -71,17 +73,26 @@ function ActualRecipePage() {
                     <img src = {data.image} className = {styles.imager}/>
                      
                 </Col>
+                <Col className = {styles.imager}>
+               Source: <a href={data.source}>{data.sourcey}</a>
+                </Col>
             </Row>
             <Row>
             <Col className = {styles.ingr}>
+            <Row className = {styles.cornell}><h1>Ingredients</h1></Row>
                     <ul className = {styles.cards}>
                         {data.ingredientsList.map((ingredient) => {
+                            if(ingredient.image !== null){
+                            ingr.push({image: ingredient.image, text: ingredient.food});}
                             let amount = ingredient.quantity;
                             amount = Math.round((amount + Number.EPSILON) * 100) / 100;
                             let measure = ingredient.measure;
                             let food = ingredient.food;
-                            if(measure === "<unit>"){
+                           
+                            if(measure === "<unit>" || measure === null){
                                 measure ="";
+                                amount ="";
+                                food = ingredient.text;
                             }
                             if(metric === true){
                                 if(measure === "tablespoon"){
@@ -121,7 +132,20 @@ function ActualRecipePage() {
                         })}
                     </ul>
                 </Col>
-
+                <Col>
+                <div id={styles.bougieer}>
+                   <Carousel fade id = {styles.bougiee}>
+                   {ingr.map((ingredient) => {
+                       return(
+                       <CarouselItem >
+                           <img id = {styles.bougiee} src = {ingredient.image}/>
+                           <Carousel.Caption>
+                               < NavbarBrand className = {styles.three}>{ingredient.text}</NavbarBrand>
+                           </Carousel.Caption>
+                       </CarouselItem>)})}
+                   </Carousel>
+                </div>
+                </Col>
                 </Row>
             </Container>
             </div>
