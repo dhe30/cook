@@ -8,7 +8,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    Recipes.findOne({ label : req.body.recipe.uri}, function (err, existingRecipe){
+    Recipes.findOne({ label : req.body.recipe.uri.substr(req.body.recipe.uri.lastIndexOf("_"))}, function (err, existingRecipe){
         if (err){
            console.log(err);
         }

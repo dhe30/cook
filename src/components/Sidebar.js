@@ -11,7 +11,7 @@ import QueryContext from '../store/Beans-context';
 import {Accordion} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import CheckboxList from './CheckboxList.js';
-
+import Beans from './Beans.js'
 let checkboxes = [];
 let metric = false;
 function Sidebar(props){
@@ -57,12 +57,18 @@ function Sidebar(props){
     console.log(typed);
 
     beansContext.addNewQuery(typed);
+    beansContext.addNewCheck(checkboxes);
     console.log(typed);
     console.log(beansContext.query);
 
     navigate('/filler');
 
     console.log(listOfCheckboxes);
+    // return (
+    //   <div>
+    //     <Beans morbin = {checkboxes} beans = {beansContext.query}/>
+    //   </div>
+    // )
   }
   
   const clickHandler = (text)=>{
