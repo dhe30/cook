@@ -12,10 +12,14 @@ import '../index.css'
 import { checkboxes } from "./Sidebar";
 import { QueryContextProvider } from '../store/Beans-context';
 import QueryContext from '../store/Beans-context';
+import NextPage from '../components/NextPage.js';
+
     const ID = '8fbbf14f';
     const KEY = 'fc7f0f3e2b9c5a2f4d86aeb03030de5d'
     
     console.log("SUMMON CTHULU"); // indices 3, 4, 5 for some reason: 3 = cuisine, 4 = dietary restriction, 5 = allergy/health
+
+    let nextLink;
 
 class Beans extends React.Component{
     static contextType = QueryContext;
@@ -58,6 +62,9 @@ class Beans extends React.Component{
                 .then((data) => {
                     console.log(data);
                     this.setState({repos: data.hits});
+                    if (data._links.next.href !== null) {
+                        nextLink = data._links.next.href;
+                    }
                 });
     }
         render(){
@@ -80,6 +87,7 @@ return(
     <QueryContextProvider>
     <div>
         <Morbius morb = {this.state.repos} query = {this.props.beans}/>
+        <NextPage typed = {this.props.beans} link = {nextLink}/>
     </div>
     </QueryContextProvider>
     )}}
