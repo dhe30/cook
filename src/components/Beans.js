@@ -79,7 +79,7 @@ return(
     console.log(this.state.repos),
     <QueryContextProvider>
     <div>
-        <Morbius morb = {this.state.repos} query = {this.props.beans}/>
+        <Morbius morb = {this.state.repos} query = {this.context.query}/>
     </div>
     </QueryContextProvider>
     )}}
