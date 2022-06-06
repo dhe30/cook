@@ -1,65 +1,69 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from "react-bootstrap/Button";
 import Morbius from './Morbius.js';
 import { Container, Row } from "react-bootstrap";
 import  Bars from '../assets/bar.gif';
-import { render } from '@testing-library/react';
+import { QueryContextProvider } from '../store/Beans-context';
 
-let newLink;
-let resultName;
-
-class NextPage extends React.component {
+class NextPage extends React.Component {
     constructor(props){
         super(props);
+        this.state = {recipes : null, newLink: this.props.link};
         console.log(this.props.link);
+        console.log(this.state.newLink);
     }
     
     componentDidMount() {
-        newLink = props.link;
-        resultName = props.typed;
-
-        const [nextRecipes, setNextRecipes] = useState([]);
-
-        console.log("fetching new data")
-        fetch(newLink)
+        console.log("fetching new data");
+        console.log("THE ABSOLUTE NEWEST CURRENT LINK: " + this.state.newLink);
+        fetch(this.state.newLink)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
-                    setNextRecipes({repos: data.hits});
-                    newLink = data._links.next.href;
-                    console.log(data);
-                }).catch(err => {
-                    console.log("fat error");
+                    this.setState({recipes: data.hits});
+                    if (data._links.next.href !== null) {
+                        this.setState({newLink: data._links.next.href});
+                    }
                 });
+        console.log("THE ABSOLUTE NEWEST CURRENT LINK pt 2: " + this.state.newLink);
     };  
 
-    function goNext() {;
+    goNext() {;
+        console.log("next");
+        return (
+            <QueryContextProvider>
+                <div>
+                    <Morbius morb = {this.state.recipes} query = {this.props.typed}/>
+                </div>
+            </QueryContextProvider>  
+        )
+    }
+
+    render() { //needing help with this part
+
+        // if (this.state.recipes === undefined || this.state.recipes === null){
+        //     return(
+        //         <Container fluid className= "Loading">
+                 
+        //         <Row className = "Loading2">
+        //         <div>
+        //             LOADING...
+                   
+        //             <img  className = "LoadingBars" src={Bars}/>
+        //             </div>
+        //         </Row>
+        //     </Container>
+        //     )
+        // }
+
         return (
             <div>
-                <Morbius morb = {nextRecipes} query = {resultName}/>
-            </div>  
+                <Button onClick = {() => this.goNext()}>
+                    20 More :D
+                </Button>
+            </div>
         )
     }
-
-    if (nextRecipes === undefined || nextRecipes === null){
-        return(
-            <Container fluid className= "Loading">
-            
-            <Row className = "Loading2">
-                <div>
-                    LOADING...
-                    <img  className = "LoadingBars" src={Bars}/>
-                </div>
-            </Row>
-        </Container>
-        )
-    }
-
-    return (
-        <Button onClick = {() => goNext()}>
-            20 More :D
-        </Button>
-    )
     
 }
 

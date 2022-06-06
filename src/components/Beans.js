@@ -19,13 +19,12 @@ import NextPage from '../components/NextPage.js';
     
     console.log("SUMMON CTHULU"); // indices 3, 4, 5 for some reason: 3 = cuisine, 4 = dietary restriction, 5 = allergy/health
 
-    let nextLink;
 
 class Beans extends React.Component{
     static contextType = QueryContext;
     constructor(props){
         super(props);
-        this.state = {repos: null};
+        this.state = {repos: null, nextLink : ""};
     }
     componentDidMount() {
         console.log(JSON.parse("[[],[],[]]"));
@@ -57,16 +56,18 @@ class Beans extends React.Component{
             APIFetchURL += "&health=" + checkboxes[2][healthLength];
             healthLength++;
         }
-            fetch(APIFetchURL)
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data);
-                    this.setState({repos: data.hits});
-                    if (data._links.next.href !== null) {
-                        nextLink = data._links.next.href;
-                    }
-                });
-    }
+
+        fetch(APIFetchURL)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                this.setState({repos: data.hits});
+                if (data._links.next.href !== null) {
+                    this.setState({nextLink: data._links.next.href});
+                }
+            });
+        }
+        
         render(){
     if (this.state.repos === undefined || this.state.repos === null){
         return(
@@ -84,10 +85,11 @@ class Beans extends React.Component{
     }
 return(
     console.log(this.state.repos),
+    console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
     <QueryContextProvider>
     <div>
         <Morbius morb = {this.state.repos} query = {this.props.beans}/>
-        <NextPage typed = {this.props.beans} link = {nextLink}/>
+        <NextPage typed = {this.props.beans} link = {this.state.nextLink}/>
     </div>
     </QueryContextProvider>
     )}}
