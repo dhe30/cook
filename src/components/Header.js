@@ -48,11 +48,11 @@ const navigate = useNavigate();
           <Col id = 'wombat'>
             <div id="gorilla">
           <InputGroup className = ''>
-            <Link>
+            
         <Button onClick = {goToRecipe}>
           Search
         </Button>
-        </Link>
+       
 
         
         <FormControl
