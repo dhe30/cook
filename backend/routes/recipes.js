@@ -9,12 +9,12 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     Recipes.findOne({ label : req.body.recipe.uri.substr(req.body.recipe.uri.lastIndexOf("_"))}, function (err, existingRecipe){
-        if (err){
-           console.log(err);
-        }
-        else if (existingRecipe === null){
+        // if (err){
+        //    console.log(err);
+        // }
+        if (existingRecipe === null){
             const label = req.body.recipe.uri.substr(req.body.recipe.uri.lastIndexOf("_"));
-            console.log(label);
+            //console.log(label);
             const recipe = req.body.recipe;
             const image = req.body.recipe.image;
             const self = req.body._links.self.href;
@@ -29,7 +29,7 @@ router.route('/add').post((req, res) => {
                 .then(() => res.json('Recipe added!'))
                 .catch(err => res.status(400).json('Error: ' + err));
         } else {
-            console.log(req.body.recipe.label);
+            //console.log(req.body.recipe.label);
             res.json('Exists!');
         }
     })

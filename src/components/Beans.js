@@ -17,7 +17,7 @@ import NextPage from '../components/NextPage.js';
     const ID = '8fbbf14f';
     const KEY = 'fc7f0f3e2b9c5a2f4d86aeb03030de5d'
     
-    console.log("SUMMON CTHULU"); // indices 3, 4, 5 for some reason: 3 = cuisine, 4 = dietary restriction, 5 = allergy/health
+    //console.log("SUMMON CTHULU"); // indices 3, 4, 5 for some reason: 3 = cuisine, 4 = dietary restriction, 5 = allergy/health
 
 
 class Beans extends React.Component{
@@ -27,16 +27,16 @@ class Beans extends React.Component{
         this.state = {repos: null, nextLink : ""};
     }
     componentDidMount() {
-        console.log(JSON.parse("[[],[],[]]"));
-        console.log("SUMMON CTHULU");
-        console.log(this.context);
-        console.log(this.context.checkbox);
+        // console.log(JSON.parse("[[],[],[]]"));
+        // console.log("SUMMON CTHULU");
+        // console.log(this.context);
+        // console.log(this.context.checkbox);
 
         let checkboxes = this.context.checkbox;
         let APIFetchURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${this.context.query}&app_id=${ID}&app_key=${KEY}`;
 
         if (checkboxes.length > 3) {
-            console.log();
+            //console.log();
             checkboxes.splice(0, 3);
         }
         let cuisineLength = 0;
@@ -60,7 +60,7 @@ class Beans extends React.Component{
         fetch(APIFetchURL)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                //console.log(data);
                 this.setState({repos: data.hits});
                 if (data._links.next.href !== null) {
                     this.setState({nextLink: data._links.next.href});
@@ -84,8 +84,8 @@ class Beans extends React.Component{
         )
     }
 return(
-    console.log(this.state.repos),
-    console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
+    //console.log(this.state.repos),
+    //console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
     <QueryContextProvider>
     <div>
         <Morbius morb = {this.state.repos} query = {this.props.beans}/>

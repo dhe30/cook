@@ -9,27 +9,27 @@ class NextPage extends React.Component {
     constructor(props){
         super(props);
         this.state = {recipes : null, newLink: this.props.link};
-        console.log(this.props.link);
-        console.log(this.state.newLink);
+        //console.log(this.props.link);
+        //console.log(this.state.newLink);
     }
     
     componentDidMount() {
-        console.log("fetching new data");
-        console.log("THE ABSOLUTE NEWEST CURRENT LINK: " + this.state.newLink);
+        //console.log("fetching new data");
+        //console.log("THE ABSOLUTE NEWEST CURRENT LINK: " + this.state.newLink);
         fetch(this.state.newLink)
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
+                    //console.log(data);
                     this.setState({recipes: data.hits});
                     if (data._links.next.href !== null) {
                         this.setState({newLink: data._links.next.href});
                     }
                 });
-        console.log("THE ABSOLUTE NEWEST CURRENT LINK pt 2: " + this.state.newLink);
+        //console.log("THE ABSOLUTE NEWEST CURRENT LINK pt 2: " + this.state.newLink);
     };  
 
     goNext() {;
-        console.log("next");
+        //console.log("next");
         return (
             <QueryContextProvider>
                 <div>

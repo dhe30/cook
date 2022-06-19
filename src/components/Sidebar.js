@@ -33,13 +33,13 @@ function Sidebar(props){
   */
 
   function handlChange(text){
-    console.log(healthLists);
+    //console.log(healthLists);
     setTyped(text);
-    console.log(typed);
+    //console.log(typed);
     fetch(`https://api.edamam.com/auto-complete?app_id=f426f10d&app_key=2d5bf94e3aab75005018d795879e50d6&q=${text}&limit=3`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                //console.log(data);
                 setSugges(data);
             });   
   }
@@ -48,67 +48,67 @@ function Sidebar(props){
     if (checkboxList === "healthList"){
     const index = healthLists.indexOf(text);
     if (index == -1) {
-      console.log(healthLists);
+      //console.log(healthLists);
       healthLists.push(text)
       setHealthLists(healthLists);
-      console.log("Added " + text);
-      console.log(healthLists);
+      //console.log("Added " + text);
+      //console.log(healthLists);
     } else {
       healthLists.splice(index, 1);
       setHealthLists(healthLists);
-      console.log("Removed: " + text);
+      //console.log("Removed: " + text);
     }} else if (checkboxList === "dietList"){
       const index = dietLists.indexOf(text);
       if (index == -1) {
-        console.log(dietLists);
+        //console.log(dietLists);
         dietLists.push(text)
         setDietLists(dietLists);
-        console.log("Added " + text);
-        console.log(dietLists);
+        //console.log("Added " + text);
+        //console.log(dietLists);
       } else {
         dietLists.splice(index, 1);
         setDietLists(dietLists);
-        console.log("Removed: " + text);
+        //console.log("Removed: " + text);
       }} else if (checkboxList === "cuisineList"){
         const index = cuisineLists.indexOf(text);
         if (index == -1) {
-          console.log(cuisineLists);
+          //console.log(cuisineLists);
           cuisineLists.push(text)
           setCuisineLists(cuisineLists);
-          console.log("Added " + text);
-          console.log(cuisineLists);
+          //console.log("Added " + text);
+          //console.log(cuisineLists);
         } else {
           cuisineLists.splice(index, 1);
           setCuisineLists(cuisineLists);
-          console.log("Removed: " + text);
+          //console.log("Removed: " + text);
         }}
-    console.log(checkboxList);
+    //console.log(checkboxList);
   }
 
   const navigate = useNavigate();
   function goToRecipe(){
     checkboxes = [];
-    console.log(cuisineList);
-    console.log (healthList);
-    console.log(dietList);
-    console.log(healthLists);
+    // console.log(cuisineList);
+    // console.log (healthList);
+    // console.log(dietList);
+    // console.log(healthLists);
     checkboxes.push(cuisineLists);
     checkboxes.push(dietLists);
     checkboxes.push(healthLists);
     setListOfCheckboxes(checkboxes);
-    console.log(checkboxes);
-    console.log(listOfCheckboxes);
+    //console.log(checkboxes);
+    //console.log(listOfCheckboxes);
 
     beansContext.addNewQuery(typed);
     if(checkboxes.length > 1){
     beansContext.addNewCheck(checkboxes);}
     else {beansContext.addNewCheck(listOfCheckboxes);}
-    console.log(typed);
-    console.log(beansContext.query);
+    //console.log(typed);
+    //console.log(beansContext.query);
 
     navigate('/filler');
 
-    console.log(listOfCheckboxes);
+    //console.log(listOfCheckboxes);
     // return (
     //   <div>
     //     <Beans morbin = {checkboxes} beans = {beansContext.query}/>
@@ -126,12 +126,12 @@ function Sidebar(props){
     checkboxes.push(cuisineList);
     checkboxes.push(dietList);
     checkboxes.push(healthList);
-    console.log(cuisineList);
-    console.log (healthList);
-    console.log(dietList);
+    // console.log(cuisineList);
+    // console.log (healthList);
+    // console.log(dietList);
     setListOfCheckboxes(checkboxes);
-    console.log(listOfCheckboxes);
-    console.log(checkboxes);
+    // console.log(listOfCheckboxes);
+    // console.log(checkboxes);
   }
 
   return(

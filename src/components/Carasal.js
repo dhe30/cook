@@ -17,21 +17,21 @@ function Carasal(){
         fetch(`http://localhost:5000/recipes/`)
                  .then((res) => res.json())
                  .then((data) => {
-                     console.log(data);
+                     //console.log(data);
                     aids = data.recipes[0].self;
                     hpv = data.recipes[1].self;
-                    console.log(aids);
+                    //console.log(aids);
                     return fetch(aids);
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                console.log(data);
+                //console.log(data);
                 setData({img1: data.recipe.images.REGULAR.url, label: data.recipe.label, uri:data.recipe.uri});
                 return fetch(hpv);
             })
             .then((res) => res.json())
                 .then((data) => {
-                console.log(data);
+                //console.log(data);
                 setDarta({img2: data.recipe.images.REGULAR.url, label: data.recipe.label, uri:data.recipe.uri});
             })
     },[setData]);
@@ -43,7 +43,7 @@ function Carasal(){
         )
     }
     return(
-        console.log(data.img1),
+        //console.log(data.img1),
         <Container>
         <Carousel>
             <CarouselItem>

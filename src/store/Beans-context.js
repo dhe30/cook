@@ -20,19 +20,19 @@ export function QueryContextProvider(props) {
     }
     function makeIt(newCheck){
         if (newCheck.length > 1){
-            console.log("LOOK HERE");
-            console.log(newCheck);
+            //console.log("LOOK HERE");
+            //console.log(newCheck);
         localStorage.removeItem("check");
         localStorage.setItem("check", JSON.stringify(newCheck));
-        console.log(localStorage.getItem("check"));
+        //console.log(localStorage.getItem("check"));
         setCheck(newCheck);}
     }
     function makeHealth(newHealth){
-            console.log("LOOK HERE");
-            console.log(newHealth);
+            //console.log("LOOK HERE");
+            //console.log(newHealth);
         localStorage.removeItem("health");
         localStorage.setItem("health", JSON.stringify(newHealth));
-        console.log(localStorage.getItem("health"));
+        //console.log(localStorage.getItem("health"));
         setHealth(newHealth);
     }
     const context = {

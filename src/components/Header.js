@@ -19,11 +19,11 @@ const clickHandler = (text)=>{
 }
 function handlChange(text){
   setTyped(text);
-  console.log(typed);
+  //console.log(typed);
   fetch(`https://api.edamam.com/auto-complete?app_id=f426f10d&app_key=2d5bf94e3aab75005018d795879e50d6&q=${text}&limit=3`)
           .then((res) => res.json())
           .then((data) => {
-              console.log(data);
+              //console.log(data);
               setSugges(data);
           });   
 }

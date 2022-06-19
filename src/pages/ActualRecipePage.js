@@ -22,12 +22,12 @@ function ActualRecipePage() {
                  .then((data) => {
                     const aids = data.self
                     setLocatron({address: data.self});
-                    console.log(aids);
+                    //console.log(aids);
                     return fetch(aids);
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                console.log(data);
+                //console.log(data);
                 setData({recipe: data.recipe, label: data.recipe.label, ingredientsList: data.recipe.ingredients, image: data.recipe.image, source: data.recipe.url, sourcey: data.recipe.source});
                 
             });
@@ -47,7 +47,7 @@ function ActualRecipePage() {
         )
     }
     return (
-        console.log(data.recipe),
+        //console.log(data.recipe),
         <Container fluid className={styles.lord}>
            
             <Row>

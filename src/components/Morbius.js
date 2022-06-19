@@ -13,7 +13,7 @@ import '../index.css'
 class Morbius extends React.Component{
     constructor(props){
         super(props);
-        console.log(this.props.morb);
+        //console.log(this.props.morb);
     }
 render(){
         return(
