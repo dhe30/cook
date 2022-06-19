@@ -54,9 +54,6 @@ function Carasal(){
                     <h3>
                         {data.label}
                     </h3>
-                    <p>
-                        Tree
-                    </p>
                 </Carousel.Caption>
             </CarouselItem>
             <CarouselItem>
@@ -67,9 +64,6 @@ function Carasal(){
                     <h3>
                         {darta.label}
                     </h3>
-                    <p>
-                        Fish
-                    </p>
                 </Carousel.Caption>
             </CarouselItem>
         </Carousel>
