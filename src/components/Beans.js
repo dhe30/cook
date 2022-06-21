@@ -84,8 +84,8 @@ class Beans extends React.Component{
         )
     }
 return(
-    //console.log(this.state.repos),
-    //console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
+    console.log(this.state.repos),
+    console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
     <QueryContextProvider>
     <div>
         <Morbius morb = {this.state.repos} query = {this.props.beans}/>

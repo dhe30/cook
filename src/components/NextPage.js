@@ -1,22 +1,18 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
 import Morbius from './Morbius.js';
-import { Container, Row } from "react-bootstrap";
-import  Bars from '../assets/bar.gif';
 import { QueryContextProvider } from '../store/Beans-context';
 
 class NextPage extends React.Component {
     constructor(props){
         super(props);
-        this.state = {recipes : null, newLink: this.props.link};
-        //console.log(this.props.link);
-        //console.log(this.state.newLink);
+        this.state = {recipes : null, newLink: ""};
     }
     
     componentDidMount() {
         //console.log("fetching new data");
-        //console.log("THE ABSOLUTE NEWEST CURRENT LINK: " + this.state.newLink);
-        fetch(this.state.newLink)
+        //console.log("This is the link: " + this.props.link);
+        fetch(this.props.link)
                 .then((res) => res.json())
                 .then((data) => {
                     //console.log(data);
@@ -24,12 +20,17 @@ class NextPage extends React.Component {
                     if (data._links.next.href !== null) {
                         this.setState({newLink: data._links.next.href});
                     }
+                }).catch(err => {
+                    this.props.link.parse('<...'); //console says the link is undefined
+                    this.componentDidMount()
                 });
-        //console.log("THE ABSOLUTE NEWEST CURRENT LINK pt 2: " + this.state.newLink);
     };  
 
     goNext() {;
+        this.componentDidMount();
         //console.log("next");
+        // console.log("This link: " + this.props.link);
+        // console.log("Next link: " + this.state.newLink);
         return (
             <QueryContextProvider>
                 <div>
