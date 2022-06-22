@@ -506,6 +506,8 @@ background-position: 0 0, 0 0, 24px 42px, 24px 42px, 0 0, 24px 42px;
 
 .rounde{
   margin-left: 11%;
+  position: relative;
+  left: 23px;
 }
 .Loading{
   width: 100%;
