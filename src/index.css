@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  height: 60px;
+  height: 70px;
   background-color: #a0b647;
   opacity: 0.9;
   box-sizing: border-box;
@@ -10,7 +10,7 @@
   z-index: 3;
 }
 .logo{
-  height: 80px;
+  height: 70px;
 }
 /* this center is for the header */
 #centerplease{

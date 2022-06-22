@@ -9,6 +9,7 @@ import QueryContext from '../store/Beans-context';
 import {useState, useContext} from 'react';
 import { Row, Container, Navbar, Col, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SCREAM from '../assets/somewhere.png';
 function Header(){
 const [typed, setTyped] = useState('');
 const beansContext = useContext(QueryContext);
@@ -38,6 +39,7 @@ const navigate = useNavigate();
       <Container>
         <Row>
         <Navbar className = 'header'>
+          <img src={SCREAM} className = "logo"/>
           <Link to='/'>
           <Navbar.Text>
             <Navbar.Brand id = "anyFood">

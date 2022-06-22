@@ -9,6 +9,8 @@ import QueryContext from '../store/Beans-context';
 import {useState, useContext} from 'react';
 import { Row, Container, Navbar, Col, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SCREAM from '../assets/somewhere.png';
+
 function HeaderNoCap(){
 
 
@@ -16,7 +18,8 @@ function HeaderNoCap(){
       <Container>
         <Row>
         <Navbar className = 'header'>
-          <Link to='/'>
+        <Link to='/'>
+        <img src={SCREAM} className = "logo"/>
           <Navbar.Text>
             <Navbar.Brand id = "anyFood">
           <span className='any'>any</span>Food
