@@ -1,6 +1,6 @@
 .harvard{
     height:100%;
-    background-color: rgb(190, 181, 181);
+    background-color: rgb(190, 181, 181,0);
     margin-left: -15px;
     margin-right: -13px;
 }
@@ -23,8 +23,15 @@
 }
 .lord{
     overflow-x: hidden;
+    background-color: #886a6a;
 }
-
+#maybe{
+    background-color: #886a6a;
+opacity: 0.8;
+background-image:  linear-gradient(#f7ad45 2px, transparent 2px), linear-gradient(90deg, #f7ad45 2px, transparent 2px), linear-gradient(#f7ad45 1px, transparent 1px), linear-gradient(90deg, #f7ad45 1px, #886a6a 1px);
+background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
 .margins {
     margin-top: 50px;
   }
@@ -52,11 +59,11 @@
     margin-left: 26px;
 }
 .ill{
-    background-color: rgb(190, 181, 181);
+    background-color: rgb(190, 181, 181,0);
     height: 15px;
 }
 .illiad{
-    background-color: rgb(190, 181, 181);
+    background-color: rgb(190, 181, 181,0);
     height: 15px;
     display: flex;
     justify-content: center;

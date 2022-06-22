@@ -17,7 +17,8 @@ class Morbius extends React.Component{
     }
 render(){
         return(
-            <Container className="lovely">
+            <div>
+            <Container>
                 <Row className="Results">
                     <h1>
                         Results for '{this.props.query}'
@@ -28,6 +29,7 @@ render(){
                     
                 </Row>
             </Container>  
+            </div>
         )   }
 }
 

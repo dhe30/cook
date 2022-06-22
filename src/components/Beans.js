@@ -87,8 +87,8 @@ return(
     console.log(this.state.repos),
     console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
     <QueryContextProvider>
-    <div>
-        <Morbius morb = {this.state.repos} query = {this.props.beans}/>
+    <div className ="lovely">
+        <Morbius morb = {this.state.repos} query = {this.context.query}/>
         <NextPage typed = {this.props.beans} link = {this.state.nextLink}/>
     </div>
     </QueryContextProvider>

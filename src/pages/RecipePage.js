@@ -1,4 +1,5 @@
 import '../index.css';
+import HeaderNoCap from '../components/HeaderNoCap';
 import Header from '../components/Header';
 import Beans from '../components/Beans';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -9,7 +10,7 @@ function RecipePage(){
     return(
         <Container fluid>
             <Row>
-                <Header id = "noGradient"/>
+                <HeaderNoCap id = "noGradient"/>
             </Row>
             <Row>
                 <Beans/>

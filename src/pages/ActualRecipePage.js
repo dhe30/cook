@@ -49,11 +49,11 @@ function ActualRecipePage() {
     return (
         //console.log(data.recipe),
         <Container fluid className={styles.lord}>
-           
             <Row>
                 <Header/>
                 
             </Row>
+            <div id={styles.maybe}>
             <Row className = {styles.ill} ></Row>
             <Row className = {styles.illiad}>
                 <div className = {styles.colombia}>
@@ -148,6 +148,7 @@ function ActualRecipePage() {
                 </Col>
                 </Row>
             </Container>
+            </div>
             </div>
         </Container>
     )
