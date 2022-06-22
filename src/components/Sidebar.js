@@ -10,8 +10,7 @@ import { QueryContextProvider } from '../store/Beans-context';
 import QueryContext from '../store/Beans-context';
 import {Accordion} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
-import CheckboxList from './CheckboxList.js';
-import Beans from './Beans.js'
+
 let checkboxes = [];
 let metric = false;
 function Sidebar(props){

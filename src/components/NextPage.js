@@ -1,42 +1,35 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
 import Morbius from './Morbius.js';
-import { QueryContextProvider } from '../store/Beans-context';
+import '../index.css'
 
 class NextPage extends React.Component {
     constructor(props){
         super(props);
-        this.state = {recipes : null, newLink: ""};
+        console.log("Made buttons");
+        this.state = {recipes : null, nextLink: ""};
     }
     
     componentDidMount() {
-        //console.log("fetching new data");
-        //console.log("This is the link: " + this.props.link);
+        console.log("fetching new data");
+        console.log("This is the next link to go to: " + this.props.link);
         fetch(this.props.link)
                 .then((res) => res.json())
                 .then((data) => {
                     //console.log(data);
-                    this.setState({recipes: data.hits});
-                    if (data._links.next.href !== null) {
-                        this.setState({newLink: data._links.next.href});
-                    }
-                }).catch(err => {
-                    this.props.link.parse('<...'); //console says the link is undefined
-                    this.componentDidMount()
+                    this.setState({recipes: data.hits, nextLink: data._links.next.href});
                 });
     };  
 
     goNext() {;
         this.componentDidMount();
-        //console.log("next");
-        // console.log("This link: " + this.props.link);
-        // console.log("Next link: " + this.state.newLink);
+        console.log("Clicking the button will lead to this link: " + this.props.link);
+        console.log("Link to be passed for the next page: " + this.state.nextLink);
+        
         return (
-            <QueryContextProvider>
-                <div>
-                    <Morbius morb = {this.state.recipes} query = {this.props.typed}/>
-                </div>
-            </QueryContextProvider>  
+            <div className ="lovely">
+                <Morbius morb = {this.state.recipes} query = {this.context.query}/>
+            </div>
         )
     }
 
@@ -59,9 +52,9 @@ class NextPage extends React.Component {
 
         return (
             <div>
-                <Button onClick = {() => this.goNext()}>
+                {/* <Button onClick = {() => this.goNext()}>
                     20 More :D
-                </Button>
+                </Button> */}
             </div>
         )
     }

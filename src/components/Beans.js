@@ -23,6 +23,7 @@ import NextPage from '../components/NextPage.js';
 class Beans extends React.Component{
     static contextType = QueryContext;
     constructor(props){
+        console.log("Made beans");
         super(props);
         this.state = {repos: null, nextLink : ""};
     }
@@ -60,11 +61,10 @@ class Beans extends React.Component{
         fetch(APIFetchURL)
             .then((res) => res.json())
             .then((data) => {
-                //console.log(data);
-                this.setState({repos: data.hits});
-                if (data._links.next.href !== null) {
-                    this.setState({nextLink: data._links.next.href});
-                }
+                // console.log(data);
+                this.setState({repos: data.hits, nextLink: data._links.next.href});
+                // anything after the setstate gets skipped
+                
             });
         }
         
@@ -84,13 +84,13 @@ class Beans extends React.Component{
         )
     }
 return(
-    console.log(this.state.repos),
-    console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
+    // console.log(this.state.repos),
+    // console.log("THIS IS THE NEXT LINK: " + this.state.nextLink),
     <QueryContextProvider>
-    <div className ="lovely">
-        <Morbius morb = {this.state.repos} query = {this.context.query}/>
-        <NextPage typed = {this.props.beans} link = {this.state.nextLink}/>
-    </div>
+        <div className ="lovely">
+            <Morbius morb = {this.state.repos} query = {this.context.query}/>
+            {/* <NextPage typed = {this.context.query} link = {this.state.nextLink}/> */}
+        </div>
     </QueryContextProvider>
     )}}
 
